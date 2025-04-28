@@ -1,0 +1,6 @@
+{
+  "welcome": "Välkommen till vår webbplats",
+  "description": "En modern webbplats byggd med Next.js, TypeScript och Tailwind CSS",
+  "getStarted": "Kom igång",
+  "learnMore": "Läs mer"
+}
