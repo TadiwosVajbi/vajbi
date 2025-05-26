@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getDictionary } from "../../dictionaries";
 
 export default async function CaseStudiesPage({
@@ -24,7 +23,7 @@ export default async function CaseStudiesPage({
             Case Studies
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
-            See how we've helped businesses transform their technology landscape
+            See how we&apos;ve helped businesses transform their technology landscape
           </p>
         </div>
       </section>

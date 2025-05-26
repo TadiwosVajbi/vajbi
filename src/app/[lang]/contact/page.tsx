@@ -1,17 +1,8 @@
 import { getDictionary } from "../../dictionaries";
 
-export default async function ContactPage({
-  params,
-}: {
-  params: { lang: string };
-}) {
-  // Extract and validate the language parameter
-  const lang = params.lang;
-
-  // Validate the language to ensure it's one we support
+export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
-
-  // Get the dictionary based on the validated language
   const dict = await getDictionary(validLang);
 
   return (
@@ -20,7 +11,7 @@ export default async function ContactPage({
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Contact Us
+            {dict.contactUs}
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
             Get in touch with our team to discuss your IT consulting needs

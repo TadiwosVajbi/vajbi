@@ -1,18 +1,8 @@
-import Image from "next/image";
 import { getDictionary } from "../../dictionaries";
 
-export default async function AboutPage({
-  params,
-}: {
-  params: { lang: string };
-}) {
-  // Extract and validate the language parameter
-  const lang = params.lang;
-
-  // Validate the language to ensure it's one we support
+export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
-
-  // Get the dictionary based on the validated language
   const dict = await getDictionary(validLang);
 
   return (
@@ -39,7 +29,7 @@ export default async function AboutPage({
                 Founded in 2015, Vajbi IT Consulting began with a simple mission: to help businesses leverage technology to achieve their goals. What started as a small team of passionate IT professionals has grown into a full-service consulting firm with expertise across the technology spectrum.
               </p>
               <p className="text-gray-600 mb-4">
-                Over the years, we've helped hundreds of businesses across various industries transform their technology infrastructure, implement innovative solutions, and stay ahead in an increasingly digital world.
+                Over the years, we&apos;ve helped hundreds of businesses across various industries transform their technology infrastructure, implement innovative solutions, and stay ahead in an increasingly digital world.
               </p>
               <p className="text-gray-600">
                 Today, we continue to be driven by our founding principles: delivering exceptional value, maintaining technical excellence, and building lasting client relationships based on trust and results.
@@ -70,7 +60,7 @@ export default async function AboutPage({
               </div>
               <h3 className="text-xl font-semibold mb-3 text-center">Integrity</h3>
               <p className="text-gray-600 text-center">
-                We believe in honest, transparent relationships with our clients. We'll always provide straightforward advice and recommend only what's truly in your best interest.
+                We believe in honest, transparent relationships with our clients. We&apos;ll always provide straightforward advice and recommend only what&apos;s truly in your best interest.
               </p>
             </div>
 
@@ -83,7 +73,7 @@ export default async function AboutPage({
               </div>
               <h3 className="text-xl font-semibold mb-3 text-center">Innovation</h3>
               <p className="text-gray-600 text-center">
-                Technology never stands still, and neither do we. We're constantly exploring new solutions and approaches to help our clients stay ahead of the curve.
+                Technology never stands still, and neither do we. We&apos;re constantly exploring new solutions and approaches to help our clients stay ahead of the curve.
               </p>
             </div>
 
@@ -96,7 +86,7 @@ export default async function AboutPage({
               </div>
               <h3 className="text-xl font-semibold mb-3 text-center">Partnership</h3>
               <p className="text-gray-600 text-center">
-                We see ourselves as an extension of your team. Your success is our success, and we're committed to building long-term relationships based on mutual growth.
+                We see ourselves as an extension of your team. Your success is our success, and we&apos;re committed to building long-term relationships based on mutual growth.
               </p>
             </div>
           </div>
@@ -158,7 +148,7 @@ export default async function AboutPage({
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to work with us?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Let's discuss how our team can help your business achieve its technology goals.
+            Let&apos;s discuss how our team can help your business achieve its technology goals.
           </p>
           <a
             href={`/${validLang}/contact`}

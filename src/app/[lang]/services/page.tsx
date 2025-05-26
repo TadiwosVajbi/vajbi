@@ -20,7 +20,7 @@ export default async function ServicesPage({
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our IT Consulting Services
+            {dict.services}
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
             Comprehensive technology solutions to drive your business forward
@@ -130,7 +130,7 @@ export default async function ServicesPage({
             href={`/${validLang}/contact`}
             className="inline-block bg-[#3982a3] text-white px-8 py-3 rounded-md font-medium hover:bg-[#2c6a87] transition-colors"
           >
-            Contact Us
+            {dict.contactUs}
           </a>
         </div>
       </section>

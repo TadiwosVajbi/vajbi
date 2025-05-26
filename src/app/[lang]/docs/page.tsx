@@ -3,8 +3,6 @@ export default async function DocsPage({
 }: {
   params: { lang: string };
 }) {
-  // Validate the language to ensure it's one we support
-  const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-8">Developer Documentation</h1>

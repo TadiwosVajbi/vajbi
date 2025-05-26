@@ -1,14 +1,8 @@
 import { getDictionary } from "../dictionaries";
 import Button from "@/components/ui/Button";
 
-export default async function Home({
-  params,
-}: {
-  params: { lang: string };
-}) {
-  // Extract and validate the language parameter
-  const lang = params.lang;
-
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   // Validate the language to ensure it's one we support
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
 
@@ -116,7 +110,7 @@ export default async function Home({
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Proven Results</h3>
-              <p className="text-gray-600">We've helped hundreds of businesses achieve their technology goals.</p>
+              <p className="text-gray-600">We&apos;ve helped hundreds of businesses achieve their technology goals.</p>
             </div>
 
             {/* Reason 3 */}
