@@ -1,18 +1,8 @@
 import { getDictionary } from "../../dictionaries";
 
-export default async function CaseStudiesPage({
-  params,
-}: {
-  params: { lang: string };
-}) {
-  // Extract and validate the language parameter
-  const lang = params.lang;
-
-  // Validate the language to ensure it's one we support
+export default async function CaseStudiesPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
-
-  // Get the dictionary based on the validated language
-  const dict = await getDictionary(validLang);
 
   return (
     <main className="flex-grow">

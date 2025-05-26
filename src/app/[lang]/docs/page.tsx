@@ -177,10 +177,10 @@ export default async function DocsPage({
               <pre className="text-sm font-mono">
 {`// src/app/dictionaries/en.json
 {
-  "welcome": "Welcome to our website",
-  "description": "A modern website built with Next.js, TypeScript, and Tailwind CSS",
-  "getStarted": "Get Started",
-  "learnMore": "Learn More"
+  &quot;welcome&quot;: &quot;Welcome to our website&quot;,
+  &quot;description&quot;: &quot;A modern website built with Next.js, TypeScript, and Tailwind CSS&quot;,
+  &quot;getStarted&quot;: &quot;Get Started&quot;,
+  &quot;learnMore&quot;: &quot;Learn More&quot;
 }`}
               </pre>
             </div>

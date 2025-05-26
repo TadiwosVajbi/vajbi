@@ -3,7 +3,6 @@ import { getDictionary } from "../../dictionaries";
 export default async function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
-  const dict = await getDictionary(validLang);
 
   return (
     <main className="flex-grow">
