@@ -1,6 +1,11 @@
 {
-  "welcome": "Välkommen till vår webbplats",
-  "description": "En modern webbplats byggd med Next.js, TypeScript och Tailwind CSS",
-  "getStarted": "Kom igång",
-  "learnMore": "Läs mer"
+  "welcome": "Innovativa IT-lösningar för ditt företag",
+  "description": "Vi levererar toppmoderna teknikkonsulttjänster och digital transformation för att hjälpa ditt företag att blomstra i den digitala eran",
+  "getStarted": "Få en gratis konsultation",
+  "learnMore": "Utforska våra tjänster",
+  "services": "Våra tjänster",
+  "caseStudies": "Fallstudier",
+  "whyChooseUs": "Varför välja Vajbi",
+  "contactUs": "Kontakta oss",
+  "about": "Om oss"
 }

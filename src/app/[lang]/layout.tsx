@@ -15,20 +15,19 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Next.js Website",
-  description: "A modern website built with Next.js, TypeScript, and Tailwind CSS",
+  title: "Vajbi IT Consulting",
+  description: "Your trusted partner for innovative technology solutions",
 };
 
 export default async function RootLayout({
   children,
-  params,
+  params: { lang },
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: string };
 }>) {
   // Make sure we're using the same language value consistently
   // by making this an async function and awaiting the params
-  const lang = params.lang;
 
   // Validate the language to ensure it's one we support
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';

@@ -9,6 +9,9 @@ const __dirname = dirname(__filename);
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
+
+  // Disable the Next.js development mode indicator (the circular button with "N")
+  devIndicators: false,
 };
 
 export default nextConfig;

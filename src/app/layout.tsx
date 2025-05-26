@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Next.js Website",
-  description: "A modern website built with Next.js, TypeScript, and Tailwind CSS",
+  title: "Vajbi IT Consulting",
+  description: "Your trusted partner for innovative technology solutions",
+  icons: {
+    icon: '/Vajbi_logo.png',
+    apple: '/Vajbi_logo.png',
+  },
 };
 
 export default function RootLayout({

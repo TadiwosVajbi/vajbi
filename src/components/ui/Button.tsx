@@ -18,21 +18,22 @@ const Button = ({
   ...props
 }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50";
-  
+
+  // Custom color: #3982a3 (teal-blue)
   const variantStyles = {
-    primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-500",
+    primary: "bg-[#3982a3] text-white hover:bg-[#2c6a87] focus-visible:ring-[#3982a3]",
     secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300 focus-visible:ring-gray-500",
-    outline: "border border-gray-300 bg-transparent hover:bg-gray-100 focus-visible:ring-gray-500",
+    outline: "border border-[#3982a3] text-[#3982a3] bg-transparent hover:bg-[#edf5f8] focus-visible:ring-[#3982a3]",
   };
-  
+
   const sizeStyles = {
     sm: "h-8 px-3 text-sm",
     md: "h-10 px-4",
     lg: "h-12 px-6 text-lg",
   };
-  
+
   const widthStyles = fullWidth ? "w-full" : "";
-  
+
   return (
     <button
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${widthStyles} ${className}`}

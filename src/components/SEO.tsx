@@ -10,12 +10,12 @@ interface SEOProps {
 }
 
 const SEO = ({
-  title = "Modern Next.js Website",
+  title = "Vajbi - Home for IT consultants",
   description = "A modern website built with Next.js, TypeScript, and Tailwind CSS",
-  canonical = "https://yourwebsite.com",
-  ogImage = "https://yourwebsite.com/og-image.jpg",
+  canonical = "https://vajbi.se",
+  ogImage = "https://vajbi.se/og-image.jpg",
 }: SEOProps) => {
-  const siteTitle = `${title} | Your Website Name`;
+  const siteTitle = `${title} | Vajbi`;
 
   return (
     <Head>
@@ -37,7 +37,7 @@ const SEO = ({
       <meta name="twitter:image" content={ogImage} />
       
       {/* Favicon */}
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/Vajbi_logo.png" />
     </Head>
   );
 };

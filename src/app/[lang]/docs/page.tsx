@@ -166,10 +166,10 @@ export default async function DocsPage({
           <section id="i18n-implementation" className="mb-12">
             <h2 className="text-2xl font-bold mb-4">i18n Implementation</h2>
             <p className="text-gray-700 mb-4">
-              Internationalization is implemented using Next.js App Router's built-in features:
+              Internationalization is implemented using Next.js App Router&apos;s built-in features:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              <li><strong>Language Detection:</strong> Middleware detects the user's preferred language</li>
+              <li><strong>Language Detection:</strong> Middleware detects the user&apos;s preferred language</li>
               <li><strong>Dictionary Loading:</strong> <code className="bg-gray-200 px-2 py-1 rounded">getDictionary()</code> function loads translations based on the language</li>
               <li><strong>Translation Files:</strong> JSON files in <code className="bg-gray-200 px-2 py-1 rounded">src/app/dictionaries/</code> contain translations</li>
               <li><strong>Language Switching:</strong> Header component allows users to switch languages</li>

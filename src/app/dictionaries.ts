@@ -5,6 +5,9 @@ interface Dictionary {
   description: string;
   getStarted: string;
   learnMore: string;
+  services: string;
+  whyChooseUs: string;
+  contactUs: string;
 }
 
 const dictionaries: Record<string, () => Promise<Dictionary>> = {

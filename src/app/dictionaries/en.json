@@ -1,8 +1,13 @@
 {
-  "welcome": "Welcome to our website",
-  "description": "A modern website built with Next.js, TypeScript, and Tailwind CSS",
-  "getStarted": "Get Started",
-  "learnMore": "Learn More",
+  "welcome": "Innovative IT Solutions for Your Business",
+  "description": "We deliver cutting-edge technology consulting and digital transformation services to help your business thrive in the digital era",
+  "getStarted": "Get a Free Consultation",
+  "learnMore": "Explore Our Services",
+  "services": "Our Services",
+  "caseStudies": "Case Studies",
+  "whyChooseUs": "Why Choose Vajbi",
+  "contactUs": "Contact Us",
+  "about": "About Us",
   "documentation": {
     "title": "Documentation",
     "contents": "Contents",
