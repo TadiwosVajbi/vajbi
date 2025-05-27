@@ -149,11 +149,23 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                     <div className="ml-3">
                       <h3 className="text-lg font-semibold text-gray-900">Office Address</h3>
                       <p className="mt-1 text-gray-600">
-                        123 Tech Boulevard<br />
-                        Suite 456<br />
-                        Stockholm, 10044<br />
+                        Norra Vallgatan 20, <br />
+                        211 25 Malmö<br />
                         Sweden
                       </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 mt-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#3982a3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="text-lg font-semibold text-gray-900">Postadress</h3>
+                      <p className="mt-1 text-gray-600">Box 4503, <br />
+                      203 20 Malmö, Sweden</p>
                     </div>
                   </div>
 
@@ -165,7 +177,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                     </div>
                     <div className="ml-3">
                       <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
-                      <p className="mt-1 text-gray-600">+46 10 123 4567</p>
+                      <p className="mt-1 text-gray-600">+46 10 140 67 00</p>
                     </div>
                   </div>
 
