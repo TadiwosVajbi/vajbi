@@ -155,7 +155,7 @@ export default async function DocsPage({
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li><strong>App Router:</strong> Routes are defined by the file system under <code className="bg-gray-200 px-2 py-1 rounded">src/app</code></li>
               <li><strong>Server Components:</strong> Most components are server components by default</li>
-              <li><strong>Client Components:</strong> Components that need client-side interactivity are marked with "use client" directive</li>
+              <li><strong>Client Components:</strong> Components that need client-side interactivity are marked with 'use client' directive</li>
               <li><strong>Dynamic Routes:</strong> The <code className="bg-gray-200 px-2 py-1 rounded">[lang]</code> directory represents a dynamic route segment for language</li>
               <li><strong>Middleware:</strong> Used for language detection and redirection</li>
             </ul>
