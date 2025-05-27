@@ -27,10 +27,6 @@ npm run build
 npm run start
 ```
 
-## Documentation
-
-For detailed documentation, visit the [/docs](/docs) page in the application.
-
 ## Project Structure
 
 ```
@@ -44,7 +40,10 @@ vajbi/
 │   │   ├── [lang]/          # Dynamic route for language
 │   │   │   ├── layout.tsx   # Layout for language routes
 │   │   │   ├── page.tsx     # Home page
-│   │   │   └── docs/        # Documentation page
+│   │   │   ├── about/       # About page
+│   │   │   ├── services/    # Services page
+│   │   │   ├── contact/     # Contact page
+│   │   │   └── case-studies/ # Case studies page
 │   │   ├── dictionaries/    # i18n dictionaries
 │   │   │   ├── en.json      # English translations
 │   │   │   └── sv.json      # Swedish translations

@@ -1,7 +1,7 @@
 import { getDictionary } from "../../dictionaries";
 
-export default async function ContactPage({ params }: { params: { lang: string } }) {
-  const { lang } = params;
+export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
   const dict = await getDictionary(validLang);
 

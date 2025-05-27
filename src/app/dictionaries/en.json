@@ -7,46 +7,5 @@
   "caseStudies": "Case Studies",
   "whyChooseUs": "Why Choose Vajbi",
   "contactUs": "Contact Us",
-  "about": "About Us",
-  "documentation": {
-    "title": "Documentation",
-    "contents": "Contents",
-    "projectOverview": "Project Overview",
-    "projectStructure": "Project Structure",
-    "technologies": "Technologies",
-    "gettingStarted": "Getting Started",
-    "internationalization": "Internationalization",
-    "overview": {
-      "title": "Project Overview",
-      "description1": "This is a modern website built with Next.js, TypeScript, and Tailwind CSS. It includes features like internationalization (i18n), responsive design, and code quality tools like ESLint and Prettier.",
-      "description2": "The website is built using the Next.js App Router, which provides a file-system based router built on top of Server Components."
-    },
-    "structure": {
-      "title": "Project Structure",
-      "description": "The project follows a modular structure to keep the codebase organized and maintainable:"
-    },
-    "tech": {
-      "title": "Technologies",
-      "nextjs": "Next.js: React framework for production with App Router",
-      "typescript": "TypeScript: Static type checking for JavaScript",
-      "tailwind": "Tailwind CSS: Utility-first CSS framework",
-      "eslint": "ESLint: Code linting",
-      "prettier": "Prettier: Code formatting",
-      "i18n": "i18n: Internationalization with support for English and Swedish"
-    },
-    "start": {
-      "title": "Getting Started",
-      "prerequisites": "Prerequisites",
-      "prereqDesc": "Make sure you have Node.js installed on your machine.",
-      "installation": "Installation",
-      "available": "The application will be available at"
-    },
-    "i18n": {
-      "title": "Internationalization",
-      "description": "The website supports multiple languages using Next.js App Router's built-in internationalization features. Currently, the following languages are supported:",
-      "english": "English (en)",
-      "swedish": "Swedish (sv)",
-      "dictionaries": "Language dictionaries are stored in"
-    }
-  }
+  "about": "About Us"
 }

@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   description: 'Your trusted partner for innovative technology solutions',
 };
 
-export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode; params: { lang: string } }>) {
-  const { lang } = params;
+export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode; params: Promise<{ lang: string }> }>) {
+  const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
   return (
     <html lang={validLang}>

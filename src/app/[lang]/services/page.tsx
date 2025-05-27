@@ -1,7 +1,7 @@
 import { getDictionary } from "../../dictionaries";
 
-export default async function ServicesPage({ params }: { params: { lang: string } }) {
-  const { lang } = params;
+export default async function ServicesPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
 
   // Validate the language to ensure it's one we support
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
