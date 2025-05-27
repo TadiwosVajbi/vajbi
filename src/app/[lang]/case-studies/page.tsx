@@ -1,5 +1,5 @@
-export default async function CaseStudiesPage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
+export default async function CaseStudiesPage({ params }: { params: { lang: string } }) {
+  const { lang } = params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
 
   return (
