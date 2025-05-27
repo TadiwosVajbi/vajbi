@@ -1,5 +1,3 @@
-import { getDictionary } from "../../dictionaries";
-
 export default async function CaseStudiesPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';

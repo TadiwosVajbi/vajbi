@@ -16,7 +16,6 @@ const dictionaries: Record<string, () => Promise<Dictionary>> = {
 };
 
 export const getDictionary = async (locale: string): Promise<Dictionary> => {
-  // Default to 'en' if the locale is not supported
   const lang = locale in dictionaries ? locale : 'en';
   return dictionaries[lang]();
 };

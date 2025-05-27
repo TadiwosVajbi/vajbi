@@ -1,5 +1,5 @@
-import { getDictionary } from "../dictionaries";
-import Button from "@/components/ui/Button";
+import { getDictionary } from '../dictionaries';
+import Button from '@/components/ui/Button';
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
