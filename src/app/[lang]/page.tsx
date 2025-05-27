@@ -21,7 +21,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             {dict.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg" className="bg-white text-[#3982a3] hover:bg-gray-100">
+            <Button variant="primary" size="lg" className="bg-white text-blackhover:bg-gray-100">
               {dict.getStarted}
             </Button>
             <Button variant="outline" size="lg" className="border-white text-white hover:bg-[#2c6a87]">
