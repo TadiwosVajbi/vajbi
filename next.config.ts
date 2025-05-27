@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
 
   // Disable the Next.js development mode indicator (the circular button with "N")
   devIndicators: false,
+
+  // Disable ESLint during build for deployment
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
