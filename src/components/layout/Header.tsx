@@ -39,8 +39,8 @@ const Header = ({ lang }: HeaderProps) => {
           <Link href={`/${lang}/services`} className="text-gray-600 hover:text-gray-900">
             Services
           </Link>
-          <Link href={`/${lang}/case-studies`} className="text-gray-600 hover:text-gray-900">
-            Case Studies
+          <Link href={`/${lang}/careers`} className="text-gray-600 hover:text-gray-900">
+            Careers
           </Link>
           <Link href={`/${lang}/about`} className="text-gray-600 hover:text-gray-900">
             About

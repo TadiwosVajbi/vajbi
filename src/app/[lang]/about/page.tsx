@@ -3,7 +3,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
 
   return (
-    <main className="flex-grow">
+    <main>
       {/* Hero Section */}
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">

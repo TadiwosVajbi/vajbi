@@ -43,7 +43,7 @@ vajbi/
 │   │   │   ├── about/       # About page
 │   │   │   ├── services/    # Services page
 │   │   │   ├── contact/     # Contact page
-│   │   │   └── case-studies/ # Case studies page
+│   │   │   └── careers/     # Careers page
 │   │   ├── dictionaries/    # i18n dictionaries
 │   │   │   ├── en.json      # English translations
 │   │   │   └── sv.json      # Swedish translations

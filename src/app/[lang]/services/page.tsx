@@ -10,7 +10,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
   const dict = await getDictionary(validLang);
 
   return (
-    <main className="flex-grow">
+    <main>
       {/* Hero Section */}
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">

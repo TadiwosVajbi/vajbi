@@ -1,4 +1,5 @@
 import { getDictionary } from "../../dictionaries";
+import ContactForm from "@/components/ContactForm";
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -6,15 +7,15 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
   const dict = await getDictionary(validLang);
 
   return (
-    <main className="flex-grow">
+    <main>
       {/* Hero Section */}
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {dict.contactUs}
+            Don't hesitate to reach out!
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
-            Get in touch with our team to discuss your IT consulting needs
+          We would love to hear from you! Please fill out the form and you will hear from us shortly.
           </p>
         </div>
       </section>
@@ -24,115 +25,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-2/3">
-              <h2 className="text-3xl font-bold mb-8">Send Us a Message</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                      placeholder="Your first name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                      placeholder="Your last name"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                      placeholder="Your phone number"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                    placeholder="Your company name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">
-                    Service of Interest
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="digital-transformation">Digital Transformation</option>
-                    <option value="cloud-solutions">Cloud Solutions</option>
-                    <option value="software-development">Software Development</option>
-                    <option value="it-security">IT Security</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Your Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#3982a3] focus:border-[#3982a3]"
-                    placeholder="Tell us about your project or inquiry"
-                  ></textarea>
-                </div>
-
-                <div>
-                  <button
-                    type="submit"
-                    className="inline-block bg-[#3982a3] text-white px-6 py-3 rounded-md font-medium hover:bg-[#2c6a87] transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </form>
+              <ContactForm />
             </div>
 
             <div className="lg:w-1/3">

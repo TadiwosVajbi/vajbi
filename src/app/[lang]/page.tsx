@@ -10,7 +10,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const dict = await getDictionary(validLang);
 
   return (
-    <main className="flex-grow">
+    <main>
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-[#3982a3] to-[#2c6a87] text-white py-24">
         <div className="container mx-auto px-4 text-center">
@@ -20,14 +20,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <p className="text-xl text-gray-100 mb-10 max-w-3xl mx-auto">
             {dict.description}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="primary" size="lg" className="bg-white text-blackhover:bg-gray-100">
-              {dict.getStarted}
-            </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-[#2c6a87]">
-              {dict.learnMore}
-            </Button>
-          </div>
+
         </div>
       </section>
 
@@ -134,7 +127,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Contact us today for a free consultation and discover how our IT consulting services can help your business grow.
           </p>
-          <Button variant="primary" size="lg" className="bg-white text-[#3982a3] hover:bg-gray-100">
+          <Button variant="primary" size="lg" className="bg-white text-black hover:bg-gray-100">
             {dict.contactUs}
           </Button>
         </div>
