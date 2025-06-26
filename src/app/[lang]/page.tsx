@@ -127,9 +127,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Contact us today for a free consultation and discover how our IT consulting services can help your business grow.
           </p>
-          <Button variant="primary" size="lg" className="bg-white text-black hover:bg-gray-100">
-            {dict.contactUs}
-          </Button>
+          <a
+            href={`/${validLang}/contact`}
+            className="inline-block bg-white text-[#3982a3] px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
+          >
+            Contact Us
+          </a>
         </div>
       </section>
     </main>
