@@ -1,34 +1,20 @@
-'use client';
-
 import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
   lang: string;
 }
 
 const Header = ({ lang }: HeaderProps) => {
-  const pathName = usePathname();
-
-  const redirectedPathName = (locale: string) => {
-    if (!pathName) return '/';
-    const segments = pathName.split('/');
-    segments[1] = locale;
-    return segments.join('/');
-  };
-
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md" suppressHydrationWarning>
       <div className="container mx-auto flex justify-between items-center">
         <Link href={`/${lang}`} className="flex items-center">
-          <Image
-            src="/Vajbi_logo.png"
-            alt="Vajbi Logo"
-            width={180}
-            height={60}
-            priority
-            className="h-16 w-auto"
+          <img
+            src="/vexita_it_logo.png"
+            alt="Vexita IT Logo"
+            width={400}
+            height={160}
+            className="h-20 w-auto py-2"
           />
         </Link>
 
@@ -51,7 +37,7 @@ const Header = ({ lang }: HeaderProps) => {
 
           <div className="flex items-center space-x-2 ml-4">
             <Link
-              href={redirectedPathName('en')}
+              href={`/en`}
               className={`px-2 py-1 rounded ${
                 lang === "en" ? "bg-gray-200" : "hover:bg-gray-100"
               }`}
@@ -59,7 +45,7 @@ const Header = ({ lang }: HeaderProps) => {
               EN
             </Link>
             <Link
-              href={redirectedPathName('sv')}
+              href={`/sv`}
               className={`px-2 py-1 rounded ${
                 lang === "sv" ? "bg-gray-200" : "hover:bg-gray-100"
               }`}

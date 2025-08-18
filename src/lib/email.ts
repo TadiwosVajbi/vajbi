@@ -33,8 +33,10 @@ export interface JobApplicationEmailData {
 }
 
 export async function sendContactEmail(data: ContactEmailData) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.log('Email not configured. Contact form data:', data);
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS ||
+      process.env.EMAIL_USER === 'your-email@gmail.com' ||
+      process.env.EMAIL_PASS === 'your-app-password') {
+    console.log('Email not configured or using placeholder values. Contact form data:', data);
     return { success: true, message: 'Email configuration not set up - logged to console' };
   }
 

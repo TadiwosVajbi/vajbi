@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 interface FooterProps {
@@ -8,7 +6,7 @@ interface FooterProps {
 
 const Footer = ({ lang }: FooterProps) => {
   return (
-    <footer className="bg-gray-800 text-white">
+    <footer className="bg-gray-800 text-white" suppressHydrationWarning>
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
@@ -29,11 +27,7 @@ const Footer = ({ lang }: FooterProps) => {
                   Careers
                 </Link>
               </li>
-              <li>
-                <Link href={`/${lang}/team`} className="hover:text-gray-300">
-                  Our Team
-                </Link>
-              </li>
+
             </ul>
           </div>
 
@@ -41,47 +35,28 @@ const Footer = ({ lang }: FooterProps) => {
             <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href={`/${lang}/services/digital-transformation`} className="hover:text-gray-300">
-                  Digital Transformation
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}/services/cloud-solutions`} className="hover:text-gray-300">
-                  Cloud Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}/services/software-development`} className="hover:text-gray-300">
-                  Software Development
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${lang}/services/it-consulting`} className="hover:text-gray-300">
-                  IT Consulting
+                <Link href={`/${lang}/services`} className="hover:text-gray-300">
+                  Our Services
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Legal</h3>
+            <h3 className="text-xl font-bold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li>
-                <Link href={`/${lang}/privacy`} className="hover:text-gray-300">
-                  Privacy Policy
-                </Link>
+                <span className="text-gray-300">info@vajbi.com</span>
               </li>
               <li>
-                <Link href={`/${lang}/terms`} className="hover:text-gray-300">
-                  Terms of Service
-                </Link>
+                <span className="text-gray-300">+46 10 140 67 00</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p>&copy; {new Date().getFullYear()} Vajbi IT Consulting. All rights reserved.</p>
+          <p>&copy; 2024 Vexita IT Consulting. All rights reserved.</p>
           <div className="mt-4 flex justify-center space-x-4">
             <a href="https://twitter.com" className="text-gray-400 hover:text-white">
               <span className="sr-only">Twitter</span>

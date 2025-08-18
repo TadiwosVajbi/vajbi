@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '../globals.css';
 import Header from '@/components/layout/Header';
@@ -14,17 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-  title: 'Vajbi IT Consulting',
-  description: 'Your trusted partner for innovative technology solutions',
-};
+
 
 export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode; params: Promise<{ lang: string }> }>) {
   const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
   return (
     <html lang={validLang}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`} suppressHydrationWarning>
         <Header lang={validLang} />
         <div className="flex-grow flex flex-col">
           {children}

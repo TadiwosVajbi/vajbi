@@ -110,12 +110,19 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
       {/* Map Section */}
       <section className="py-8">
         <div className="container mx-auto px-4">
-          <div className="bg-gray-200 h-96 rounded-lg flex items-center justify-center">
-            <div className="text-gray-400 text-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-              </svg>
-              <p className="text-lg">Map placeholder - would be replaced with an actual map integration</p>
+          <div className="bg-gray-100 rounded-lg overflow-hidden shadow-sm">
+            <h2 className="text-2xl font-bold text-center py-6 text-gray-800">Find Us</h2>
+            <div className="h-96">
+              <iframe
+                src="https://www.google.com/maps?q=Norra+Vallgatan+20,+211+25+Malmö,+Sweden&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Vajbi Office Location - Norra Vallgatan 20, 211 25 Malmö, Sweden"
+              />
             </div>
           </div>
         </div>

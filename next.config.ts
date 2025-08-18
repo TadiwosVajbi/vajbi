@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+
+  // Image optimization settings
+  images: {
+    unoptimized: true,
+  },
+
+  // Experimental features for React 19 compatibility
+  experimental: {
+    optimizePackageImports: ['@formatjs/intl-localematcher', 'negotiator'],
+  },
 };
 
 export default nextConfig;

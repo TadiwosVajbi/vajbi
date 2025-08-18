@@ -1,4 +1,4 @@
-# Vajbi - Modern Next.js Website
+# Vexita - Modern Next.js Website
 
 A modern website built with Next.js, TypeScript, and Tailwind CSS with internationalization support for English and Swedish.
 
@@ -30,7 +30,7 @@ npm run start
 ## Project Structure
 
 ```
-vajbi/
+vexita/
 ├── public/                  # Static assets
 │   └── locales/             # Legacy i18n files (not used with App Router)
 │       ├── en/
