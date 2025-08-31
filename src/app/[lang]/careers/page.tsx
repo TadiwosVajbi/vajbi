@@ -146,7 +146,7 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-2">Great Team</h3>
-              <p className="text-gray-600">Join a collaborative team of talented professionals who support each other's growth.</p>
+              <p className="text-gray-600">Join a collaborative team of talented professionals who support each other&apos;s growth.</p>
             </div>
             
             <div className="text-center">
@@ -165,9 +165,9 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
       {/* CTA Section */}
       <section className="py-16 bg-[#3982a3] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Don't see the right position?</h2>
+          <h2 className="text-3xl font-bold mb-6">Don&apos;t see the right position?</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            We're always looking for talented individuals. Send us your CV and we'll keep you in mind for future opportunities.
+            We&apos;re always looking for talented individuals. Send us your CV and we&apos;ll keep you in mind for future opportunities.
           </p>
           <a
             href={`/${validLang}/contact`}

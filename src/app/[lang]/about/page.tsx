@@ -5,10 +5,7 @@ import { useState, useEffect } from 'react';
 export default function AboutPage({ params }: { params: Promise<{ lang: string }> }) {
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [validLang, setValidLang] = useState('en');
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
     params.then(({ lang }) => {
       setValidLang(['en', 'sv'].includes(lang) ? lang : 'en');
     });

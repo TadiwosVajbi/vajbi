@@ -3,11 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-interface JobApplicationFormProps {
-  lang: string;
-}
-
-export default function JobApplicationForm({ lang }: JobApplicationFormProps) {
+export default function JobApplicationForm() {
   const [jobTitle, setJobTitle] = useState('');
   const searchParams = useSearchParams();
   const [isSubmitting, setIsSubmitting] = useState(false);

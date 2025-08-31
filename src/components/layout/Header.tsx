@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface HeaderProps {
   lang: string;
@@ -9,12 +10,13 @@ const Header = ({ lang }: HeaderProps) => {
     <header className="bg-white shadow-md" suppressHydrationWarning>
       <div className="container mx-auto flex justify-between items-center">
         <Link href={`/${lang}`} className="flex items-center">
-          <img
-            src="/vexita_it_logo.png"
+          <Image
+            src="/vexita_it_logo_with_trademark.png"
             alt="Vexita IT Logo"
-            width={400}
-            height={160}
+            width={1536}
+            height={400}
             className="h-20 w-auto py-2"
+            priority
           />
         </Link>
 
