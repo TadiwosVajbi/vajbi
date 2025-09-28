@@ -1,30 +1,32 @@
 import Link from 'next/link';
+import { getDictionary } from '../../app/dictionaries';
 
 interface FooterProps {
   lang: string;
 }
 
-const Footer = ({ lang }: FooterProps) => {
+const Footer = async ({ lang }: FooterProps) => {
+  const dict = await getDictionary(lang);
   return (
     <footer className="bg-gray-800 text-white" suppressHydrationWarning>
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Company</h3>
+            <h3 className="text-xl font-bold mb-4">{dict.company}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href={`/${lang}/about`} className="hover:text-gray-300">
-                  About Us
+                  {dict.aboutUs}
                 </Link>
               </li>
               <li>
                 <Link href={`/${lang}/contact`} className="hover:text-gray-300">
-                  Contact
+                  {dict.contact}
                 </Link>
               </li>
               <li>
                 <Link href={`/${lang}/careers`} className="hover:text-gray-300">
-                  Careers
+                  {dict.careers}
                 </Link>
               </li>
 
@@ -32,21 +34,21 @@ const Footer = ({ lang }: FooterProps) => {
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <h3 className="text-xl font-bold mb-4">{dict.services}</h3>
             <ul className="space-y-2">
               <li>
                 <Link href={`/${lang}/services`} className="hover:text-gray-300">
-                  Our Services
+                  {dict.ourServices}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact</h3>
+            <h3 className="text-xl font-bold mb-4">{dict.contact}</h3>
             <ul className="space-y-2">
               <li>
-                <span className="text-gray-300">info@vajbi.com</span>
+                <span className="text-gray-300">info@vexita.se</span>
               </li>
               <li>
                 <span className="text-gray-300">+46 10 140 67 00</span>
@@ -56,7 +58,7 @@ const Footer = ({ lang }: FooterProps) => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
-          <p>&copy; 2024 Vexita IT Consulting. All rights reserved.</p>
+          <p>&copy; 2024 Vexita IT Consulting. {dict.allRightsReserved}.</p>
           <div className="mt-4 flex justify-center space-x-4">
             <a href="https://twitter.com" className="text-gray-400 hover:text-white">
               <span className="sr-only">Twitter</span>

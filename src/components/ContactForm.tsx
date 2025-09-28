@@ -1,22 +1,47 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function ContactForm() {
+interface Dictionary {
+  firstName: string;
+  lastName: string;
+  emailLabel: string;
+  howCanWeHelp: string;
+  sendMessage: string;
+  sending: string;
+}
+
+interface ContactFormProps {
+  lang: string;
+}
+
+export default function ContactForm({ lang }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [dict, setDict] = useState<Dictionary | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const loadDictionary = async () => {
+      const dictModule = await import(`../app/dictionaries/${lang}.json`);
+      setDict(dictModule.default);
+      setMounted(true);
+    };
+
+    loadDictionary();
+  }, [lang]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const formData = new FormData(e.currentTarget);
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         body: formData,
       });
-      
+
       if (response.ok) {
         alert('Message sent successfully! We will get back to you soon.');
         (e.target as HTMLFormElement).reset();
@@ -31,12 +56,40 @@ export default function ContactForm() {
     }
   };
 
+  if (!mounted || !dict) {
+    return (
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="animate-pulse">
+            <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="h-12 bg-gray-200 rounded"></div>
+          </div>
+          <div className="animate-pulse">
+            <div className="h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="h-12 bg-gray-200 rounded"></div>
+          </div>
+        </div>
+        <div className="animate-pulse">
+          <div className="h-4 bg-gray-200 rounded mb-2"></div>
+          <div className="h-12 bg-gray-200 rounded"></div>
+        </div>
+        <div className="animate-pulse">
+          <div className="h-4 bg-gray-200 rounded mb-2"></div>
+          <div className="h-32 bg-gray-200 rounded"></div>
+        </div>
+        <div className="animate-pulse">
+          <div className="h-12 bg-gray-200 rounded w-32"></div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label htmlFor="firstName" className="block text-lg font-medium text-gray-900 mb-2">
-            First name
+            {dict.firstName}
           </label>
           <input
             type="text"
@@ -48,7 +101,7 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="lastName" className="block text-lg font-medium text-gray-900 mb-2">
-            Last name
+            {dict.lastName}
           </label>
           <input
             type="text"
@@ -62,7 +115,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block text-lg font-medium text-gray-900 mb-2">
-          Email *
+          {dict.emailLabel}
         </label>
         <input
           type="email"
@@ -76,7 +129,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-lg font-medium text-gray-900 mb-2">
-          How can we help? *
+          {dict.howCanWeHelp}
         </label>
         <textarea
           id="message"
@@ -94,7 +147,7 @@ export default function ContactForm() {
           disabled={isSubmitting}
           className="bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors text-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {isSubmitting ? 'Sending...' : 'Send message'}
+          {isSubmitting ? dict.sending : dict.sendMessage}
         </button>
       </div>
     </form>

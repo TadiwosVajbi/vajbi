@@ -1,7 +1,10 @@
 import ContactForm from "@/components/ContactForm";
+import { getDictionary } from "../../dictionaries";
 
-export default async function ContactPage() {
-
+export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
+  const dict = await getDictionary(validLang);
 
   return (
     <main>
@@ -9,10 +12,10 @@ export default async function ContactPage() {
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Don&apos;t hesitate to reach out!
+            {dict.contactHero}
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
-          We would love to hear from you! Please fill out the form and you will hear from us shortly.
+            {dict.contactHeroDescription}
           </p>
         </div>
       </section>
@@ -22,11 +25,11 @@ export default async function ContactPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
             <div className="lg:w-2/3">
-              <ContactForm />
+              <ContactForm lang={validLang} />
             </div>
 
             <div className="lg:w-1/3">
-              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <h2 className="text-3xl font-bold mb-8">{dict.contactInformation}</h2>
               <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
                 <div className="space-y-6">
                   <div className="flex items-start">
@@ -37,7 +40,7 @@ export default async function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Office Address</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">{dict.officeAddress}</h3>
                       <p className="mt-1 text-gray-600">
                         Norra Vallgatan 20, <br />
                         211 25 Malmö<br />
@@ -53,7 +56,7 @@ export default async function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Postadress</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">{dict.postAddress}</h3>
                       <p className="mt-1 text-gray-600">Box 4503, <br />
                       203 20 Malmö, Sweden</p>
                     </div>
@@ -66,7 +69,7 @@ export default async function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Phone</h3>
+                      <h3 className="text-lg font-semibold text-gray-900">{dict.phone}</h3>
                       <p className="mt-1 text-gray-600">+46 10 140 67 00</p>
                     </div>
                   </div>
@@ -78,8 +81,8 @@ export default async function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Email</h3>
-                      <p className="mt-1 text-gray-600">info@vajbi.com</p>
+                      <h3 className="text-lg font-semibold text-gray-900">{dict.email}</h3>
+                      <p className="mt-1 text-gray-600">info@vexita.se</p>
                     </div>
                   </div>
 
@@ -90,10 +93,9 @@ export default async function ContactPage() {
                       </svg>
                     </div>
                     <div className="ml-3">
-                      <h3 className="text-lg font-semibold text-gray-900">Business Hours</h3>
-                      <p className="mt-1 text-gray-600">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                        Saturday - Sunday: Closed
+                      <h3 className="text-lg font-semibold text-gray-900">{dict.businessHours}</h3>
+                      <p className="mt-1 text-gray-600" style={{ whiteSpace: 'pre-line' }}>
+                        {dict.businessHoursText}
                       </p>
                     </div>
                   </div>
@@ -108,7 +110,7 @@ export default async function ContactPage() {
       <section className="py-8">
         <div className="container mx-auto px-4">
           <div className="bg-gray-100 rounded-lg overflow-hidden shadow-sm">
-            <h2 className="text-2xl font-bold text-center py-6 text-gray-800">Find Us</h2>
+            <h2 className="text-2xl font-bold text-center py-6 text-gray-800">{dict.findUs}</h2>
             <div className="h-96">
               <iframe
                 src="https://www.google.com/maps?q=Norra+Vallgatan+20,+211+25+Malmö,+Sweden&output=embed"
@@ -118,7 +120,7 @@ export default async function ContactPage() {
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Vajbi Office Location - Norra Vallgatan 20, 211 25 Malmö, Sweden"
+                title="Vexita Office Location - Norra Vallgatan 20, 211 25 Malmö, Sweden"
               />
             </div>
           </div>

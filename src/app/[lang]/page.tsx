@@ -28,7 +28,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4">{dict.services}</h2>
           <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            Our comprehensive range of IT consulting services designed to transform your business
+            {dict.servicesHeroDescription}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Service 1 */}
@@ -38,8 +38,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">Digital Transformation</h3>
-              <p className="text-gray-600 text-center">Modernize your business with cutting-edge digital solutions.</p>
+              <h3 className="text-xl font-semibold mb-3 text-center">{dict.digitalTransformation}</h3>
+              <p className="text-gray-600 text-center">{dict.digitalTransformationDescription}</p>
             </div>
 
             {/* Service 2 */}
@@ -49,8 +49,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">Cloud Solutions</h3>
-              <p className="text-gray-600 text-center">Secure, scalable cloud infrastructure for your growing business.</p>
+              <h3 className="text-xl font-semibold mb-3 text-center">{dict.cloudSolutions}</h3>
+              <p className="text-gray-600 text-center">{dict.cloudSolutionsDescription}</p>
             </div>
 
             {/* Service 3 */}
@@ -60,8 +60,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">Software Development</h3>
-              <p className="text-gray-600 text-center">Custom software solutions tailored to your specific business needs.</p>
+              <h3 className="text-xl font-semibold mb-3 text-center">{dict.softwareDevelopment}</h3>
+              <p className="text-gray-600 text-center">{dict.softwareDevelopmentDescription}</p>
             </div>
 
             {/* Service 4 */}
@@ -71,8 +71,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-center">IT Security</h3>
-              <p className="text-gray-600 text-center">Protect your business with comprehensive cybersecurity solutions.</p>
+              <h3 className="text-xl font-semibold mb-3 text-center">{dict.itSecurity}</h3>
+              <p className="text-gray-600 text-center">{dict.itSecurityDescription}</p>
             </div>
           </div>
         </div>
@@ -90,8 +90,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Expert Team</h3>
-              <p className="text-gray-600">Our team of certified IT professionals brings decades of industry experience.</p>
+              <h3 className="text-xl font-semibold mb-2">{dict.expertTeam}</h3>
+              <p className="text-gray-600">{dict.expertTeamDescription}</p>
             </div>
 
             {/* Reason 2 */}
@@ -101,8 +101,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Proven Results</h3>
-              <p className="text-gray-600">We&apos;ve helped hundreds of businesses achieve their technology goals.</p>
+              <h3 className="text-xl font-semibold mb-2">{dict.provenResults}</h3>
+              <p className="text-gray-600">{dict.provenResultsDescription}</p>
             </div>
 
             {/* Reason 3 */}
@@ -112,8 +112,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Dedicated Support</h3>
-              <p className="text-gray-600">24/7 support and maintenance to keep your systems running smoothly.</p>
+              <h3 className="text-xl font-semibold mb-2">{dict.dedicatedSupport}</h3>
+              <p className="text-gray-600">{dict.dedicatedSupportDescription}</p>
             </div>
           </div>
         </div>
@@ -122,15 +122,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* CTA Section */}
       <section className="py-16 bg-[#3982a3] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to transform your business?</h2>
+          <h2 className="text-3xl font-bold mb-6">{dict.readyToGetStarted}</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Contact us today for a free consultation and discover how our IT consulting services can help your business grow.
+            {dict.readyToGetStartedDescription}
           </p>
           <a
             href={`/${validLang}/contact`}
             className="inline-block bg-white text-[#3982a3] px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
           >
-            Contact Us
+            {dict.contactUs}
           </a>
         </div>
       </section>

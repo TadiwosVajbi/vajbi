@@ -20,7 +20,7 @@ export default async function RootLayout({ children, params }: Readonly<{ childr
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
   return (
     <html lang={validLang}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`} suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
         <Header lang={validLang} />
         <div className="flex-grow flex flex-col">
           {children}

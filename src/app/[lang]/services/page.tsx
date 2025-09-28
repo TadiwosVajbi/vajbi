@@ -18,7 +18,7 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
             {dict.services}
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
-            Comprehensive technology solutions to drive your business forward
+            {dict.servicesHeroDescription}
           </p>
         </div>
       </section>
@@ -35,15 +35,14 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Digital Transformation</h3>
+                <h3 className="text-2xl font-bold mb-3">{dict.digitalTransformation}</h3>
                 <p className="text-gray-600 mb-4">
-                  We help businesses modernize their operations through strategic digital transformation initiatives. Our approach focuses on aligning technology with your business goals to create sustainable growth.
+                  {dict.digitalTransformationDescription}
                 </p>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  <li>Business process automation</li>
-                  <li>Legacy system modernization</li>
-                  <li>Digital workplace solutions</li>
-                  <li>Data-driven decision making</li>
+                  {dict.digitalTransformationFeatures.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -56,15 +55,14 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Cloud Solutions</h3>
+                <h3 className="text-2xl font-bold mb-3">{dict.cloudSolutions}</h3>
                 <p className="text-gray-600 mb-4">
-                  Our cloud experts design, implement, and manage secure cloud environments that scale with your business. We work with leading cloud providers to deliver reliable and cost-effective solutions.
+                  {dict.cloudSolutionsDescription}
                 </p>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  <li>Cloud migration strategies</li>
-                  <li>Multi-cloud architecture</li>
-                  <li>Cloud security and compliance</li>
-                  <li>Managed cloud services</li>
+                  {dict.cloudSolutionsFeatures.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -77,15 +75,14 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Software Development</h3>
+                <h3 className="text-2xl font-bold mb-3">{dict.softwareDevelopment}</h3>
                 <p className="text-gray-600 mb-4">
-                  We build custom software solutions that address your unique business challenges. Our development team follows industry best practices to deliver high-quality, maintainable code.
+                  {dict.softwareDevelopmentDescription}
                 </p>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  <li>Custom application development</li>
-                  <li>Web and mobile applications</li>
-                  <li>API development and integration</li>
-                  <li>DevOps and CI/CD implementation</li>
+                  {dict.softwareDevelopmentFeatures.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -98,15 +95,14 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
                 </svg>
               </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">IT Security</h3>
+                <h3 className="text-2xl font-bold mb-3">{dict.itSecurity}</h3>
                 <p className="text-gray-600 mb-4">
-                  Protect your business with our comprehensive cybersecurity solutions. We help identify vulnerabilities, implement security controls, and develop incident response plans.
+                  {dict.itSecurityDescription}
                 </p>
                 <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  <li>Security assessments and audits</li>
-                  <li>Endpoint protection</li>
-                  <li>Network security</li>
-                  <li>Security awareness training</li>
+                  {dict.itSecurityFeatures.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -117,9 +113,9 @@ export default async function ServicesPage({ params }: { params: Promise<{ lang:
       {/* CTA Section */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to get started?</h2>
+          <h2 className="text-3xl font-bold mb-6">{dict.readyToGetStarted}</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Contact us today for a free consultation and discover how our IT consulting services can help your business grow.
+            {dict.readyToGetStartedDescription}
           </p>
           <a
             href={`/${validLang}/contact`}

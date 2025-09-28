@@ -1,6 +1,9 @@
+import { getDictionary } from "../../dictionaries";
+
 export default async function CareersPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
+  const dict = await getDictionary(validLang);
 
   // Sample job openings - in a real app, this would come from a database or CMS
   const jobOpenings = [
@@ -57,10 +60,10 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
       <section className="bg-[#3982a3] text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Join Our Team
+            {dict.joinOurTeam}
           </h1>
           <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
-            Build your career with us and help shape the future of technology consulting
+            {dict.joinOurTeamDescription}
           </p>
         </div>
       </section>
@@ -68,7 +71,7 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
       {/* Job Openings Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Current Openings</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{dict.currentOpenings}</h2>
           
           <div className="space-y-8">
             {jobOpenings.map((job) => (
@@ -103,14 +106,14 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
                     href={`/${validLang}/careers/apply?job=${job.id}`}
                     className="inline-block bg-[#3982a3] text-white px-6 py-3 rounded-md font-medium hover:bg-[#2c6a87] transition-colors text-center lg:text-left"
                   >
-                    Apply Now
+                    {dict.applyNow}
                   </a>
                 </div>
                 
                 <p className="text-gray-700 mb-4">{job.description}</p>
                 
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Requirements:</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2">{dict.requirements}</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
                     {job.requirements.map((req, index) => (
                       <li key={index}>{req}</li>
@@ -126,8 +129,8 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
       {/* Why Work With Us Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Work With Us?</h2>
-          
+          <h2 className="text-3xl font-bold text-center mb-12">{dict.whyWorkWithUs}</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-[#3982a3] text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -135,28 +138,28 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-2">Innovation Focus</h3>
-              <p className="text-gray-600">Work with cutting-edge technologies and innovative solutions that make a real impact.</p>
+              <h3 className="text-xl font-bold mb-2">{dict.innovationFocus}</h3>
+              <p className="text-gray-600">{dict.innovationFocusDescription}</p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-[#3982a3] text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-2">Great Team</h3>
-              <p className="text-gray-600">Join a collaborative team of talented professionals who support each other&apos;s growth.</p>
+              <h3 className="text-xl font-bold mb-2">{dict.greatTeam}</h3>
+              <p className="text-gray-600">{dict.greatTeamDescription}</p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-[#3982a3] text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold mb-2">Growth Opportunities</h3>
-              <p className="text-gray-600">Continuous learning and development opportunities to advance your career.</p>
+              <h3 className="text-xl font-bold mb-2">{dict.growthOpportunities}</h3>
+              <p className="text-gray-600">{dict.growthOpportunitiesDescription}</p>
             </div>
           </div>
         </div>
@@ -165,15 +168,15 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
       {/* CTA Section */}
       <section className="py-16 bg-[#3982a3] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Don&apos;t see the right position?</h2>
+          <h2 className="text-3xl font-bold mb-6">{dict.dontSeeRightPosition}</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            We&apos;re always looking for talented individuals. Send us your CV and we&apos;ll keep you in mind for future opportunities.
+            {dict.dontSeeRightPositionDescription}
           </p>
           <a
             href={`/${validLang}/contact`}
             className="inline-block bg-white text-[#3982a3] px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors"
           >
-            Contact Us
+            {dict.contactUs}
           </a>
         </div>
       </section>
