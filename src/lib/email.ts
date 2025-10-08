@@ -90,6 +90,11 @@ export async function sendContactEmail(data: ContactEmailData) {
     const toAddress = process.env.CONTACT_EMAIL || 'tghiwot@vexita.se';
     const replyTo = process.env.CONTACT_EMAIL || fromEmail;
 
+    console.log('Email provider:', provider);
+    console.log('From email:', fromEmail);
+    console.log('To address:', toAddress);
+    console.log('Reply to:', replyTo);
+
     const subject = `New Contact Form Submission from ${data.firstName} ${data.lastName}`;
     const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -188,6 +193,10 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
     const provider = EMAIL_PROVIDER;
     const fromEmail = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.EMAIL_USER || process.env.GRAPH_SENDER || '';
     const toAddress = process.env.JOBS_EMAIL || 'tghiwot@vexita.se';
+
+    console.log('Email provider:', provider);
+    console.log('From email:', fromEmail);
+    console.log('To address:', toAddress);
 
     const attachments = [];
     
