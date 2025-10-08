@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Vexita IT Consulting',
+  title: 'Vexita AB',
   description: 'Your trusted partner for innovative technology solutions',
   icons: {
     icon: '/vexita_icon_clean.png',

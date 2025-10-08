@@ -42,6 +42,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                     <div className="ml-3">
                       <h3 className="text-lg font-semibold text-gray-900">{dict.officeAddress}</h3>
                       <p className="mt-1 text-gray-600">
+                        Vexita AB <br />
                         Norra Vallgatan 20, <br />
                         211 25 Malmö<br />
                         Sweden
@@ -57,7 +58,8 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                     </div>
                     <div className="ml-3">
                       <h3 className="text-lg font-semibold text-gray-900">{dict.postAddress}</h3>
-                      <p className="mt-1 text-gray-600">Box 4503, <br />
+                      <p className="mt-1 text-gray-600">Vexita AB <br />
+                      Box 4503, <br />
                       203 20 Malmö, Sweden</p>
                     </div>
                   </div>
@@ -70,7 +72,7 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
                     </div>
                     <div className="ml-3">
                       <h3 className="text-lg font-semibold text-gray-900">{dict.phone}</h3>
-                      <p className="mt-1 text-gray-600">+46 10 140 67 00</p>
+                      <p className="mt-1 text-gray-600">+46 (0) 10 140 67 00</p>
                     </div>
                   </div>
 

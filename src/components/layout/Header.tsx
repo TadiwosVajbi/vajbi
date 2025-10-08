@@ -1,21 +1,20 @@
 import Link from 'next/link';
-import { getDictionary } from '../../app/dictionaries';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher';
+import type { Dictionary } from '@/app/dictionaries';
 
 interface HeaderProps {
   lang: string;
+  dict: Dictionary;
 }
 
-const Header = async ({ lang }: HeaderProps) => {
-  const dict = await getDictionary(lang);
-
+const Header = ({ lang, dict }: HeaderProps) => {
   return (
     <header className="bg-white shadow-md" suppressHydrationWarning>
       <div className="container mx-auto flex justify-between items-center">
         <Link href={`/${lang}`} className="flex items-center">
           <img
             src="/vexita_it_logo_with_trademark.png"
-            alt="Vexita IT Logo"
+            alt="Vexita AB Logo"
             width={1536}
             height={400}
             className="h-20 w-auto py-2"

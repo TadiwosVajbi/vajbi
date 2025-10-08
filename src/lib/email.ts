@@ -1,9 +1,60 @@
 import nodemailer from 'nodemailer';
+import type { SentMessageInfo } from 'nodemailer';
+
+// Simple provider switch: smtp | graph (default smtp)
+const EMAIL_PROVIDER = (process.env.EMAIL_PROVIDER || 'smtp').toLowerCase();
+
+// Microsoft Graph helpers (used when EMAIL_PROVIDER=graph)
+async function getGraphToken(): Promise<string> {
+  const tenantId = process.env.TENANT_ID;
+  const clientId = process.env.CLIENT_ID;
+  const clientSecret = process.env.CLIENT_SECRET;
+  if (!tenantId || !clientId || !clientSecret) {
+    throw new Error('Graph credentials missing: TENANT_ID, CLIENT_ID, CLIENT_SECRET');
+  }
+  const body = new URLSearchParams({
+    client_id: clientId,
+    client_secret: clientSecret,
+    scope: 'https://graph.microsoft.com/.default',
+    grant_type: 'client_credentials',
+  });
+  const resp = await fetch(`https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  });
+  if (!resp.ok) {
+    throw new Error(`Graph token failed: ${resp.status} ${await resp.text()}`);
+  }
+  const json = await resp.json();
+  return json.access_token as string;
+}
+
+async function graphSendMail(fromUpn: string, to: string[], subject: string, html: string, replyTo?: string): Promise<void> {
+  const token = await getGraphToken();
+  const payload = {
+    message: {
+      subject,
+      body: { contentType: 'HTML', content: html },
+      toRecipients: to.map((t) => ({ emailAddress: { address: t } })),
+      replyTo: replyTo ? [{ emailAddress: { address: replyTo } }] : [],
+    },
+    saveToSentItems: true,
+  };
+  const resp = await fetch(`https://graph.microsoft.com/v1.0/users/${encodeURIComponent(fromUpn)}/sendMail`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!resp.ok) {
+    throw new Error(`Graph sendMail failed: ${resp.status} ${await resp.text()}`);
+  }
+}
 
 // Create reusable transporter object using SMTP transport
 const createTransporter = () => {
   return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+    host: process.env.EMAIL_HOST || 'smtp.office365.com',
     port: parseInt(process.env.EMAIL_PORT || '587'),
     secure: false, // true for 465, false for other ports
     auth: {
@@ -33,21 +84,14 @@ export interface JobApplicationEmailData {
 }
 
 export async function sendContactEmail(data: ContactEmailData) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS ||
-      process.env.EMAIL_USER === 'your-email@gmail.com' ||
-      process.env.EMAIL_PASS === 'your-app-password') {
-    console.log('Email not configured or using placeholder values. Contact form data:', data);
-    return { success: true, message: 'Email configuration not set up - logged to console' };
-  }
-
   try {
-    const transporter = createTransporter();
+    const provider = EMAIL_PROVIDER;
+    const fromEmail = process.env.CONTACT_FROM_EMAIL || process.env.FROM_EMAIL || process.env.EMAIL_USER || process.env.GRAPH_SENDER || '';
+    const toAddress = process.env.CONTACT_EMAIL || 'tghiwot@vexita.se';
+    const replyTo = process.env.CONTACT_EMAIL || fromEmail;
 
-    const mailOptions = {
-      from: `"Vexita Contact Form" <${process.env.EMAIL_USER}>`,
-      to: process.env.CONTACT_EMAIL || 'tghiwot@vexita.se',
-      subject: `New Contact Form Submission from ${data.firstName} ${data.lastName}`,
-      html: `
+    const subject = `New Contact Form Submission from ${data.firstName} ${data.lastName}`;
+    const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3982a3;">New Contact Form Submission</h2>
 
@@ -73,19 +117,30 @@ export async function sendContactEmail(data: ContactEmailData) {
           <hr style="margin: 30px 0;">
           <p style="color: #6c757d; font-size: 12px;"><em>Submitted at: ${new Date().toISOString().replace('T', ' ').substring(0, 19)} UTC</em></p>
         </div>
-      `,
-      replyTo: data.email,
-    };
+      `;
 
-    // Send the main contact email to the company
-    await transporter.sendMail(mailOptions);
+    if (provider === 'graph') {
+      const fromUpn = process.env.CONTACT_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      await graphSendMail(fromUpn, [toAddress], subject, html, data.email);
+    } else {
+      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.log('SMTP not configured. Contact form data:', data);
+        return { success: true, message: 'Email configuration not set up - logged to console' };
+      }
+      const transporter = createTransporter();
+      const mailOptions = {
+        from: `"Vexita Contact Form" <${fromEmail}>`,
+        to: toAddress,
+        subject,
+        html,
+        replyTo: data.email,
+      };
+      await transporter.sendMail(mailOptions);
+    }
 
     // Send auto-reply confirmation to the contact
-    const autoReplyOptions = {
-      from: `"Vexita" <${process.env.EMAIL_USER}>`,
-      to: data.email,
-      subject: `Thank you for contacting Vexita`,
-      html: `
+    const autoReplySubject = `Thank you for contacting Vexita`;
+    const autoReplyHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3982a3;">Thank you for reaching out!</h2>
 
@@ -103,26 +158,36 @@ export async function sendContactEmail(data: ContactEmailData) {
           <hr style="margin: 30px 0;">
           <p style="color: #6c757d; font-size: 12px;">This is an automated confirmation email. Please do not reply to this email.</p>
         </div>
-      `,
-    };
+      `;
 
-    await transporter.sendMail(autoReplyOptions);
+    if (provider === 'graph') {
+      const fromUpn = process.env.CONTACT_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      await graphSendMail(fromUpn, [data.email], autoReplySubject, autoReplyHtml, replyTo);
+    } else {
+      const transporter = createTransporter();
+      const autoReplyOptions = {
+        from: `"Vexita" <${fromEmail}>`,
+        to: data.email,
+        subject: autoReplySubject,
+        replyTo,
+        html: autoReplyHtml,
+      } as any;
+      await transporter.sendMail(autoReplyOptions as unknown as SentMessageInfo);
+    }
 
     return { success: true, message: 'Contact email sent successfully with auto-reply' };
   } catch (error) {
     console.error('Error sending contact email:', error);
-    return { success: false, message: 'Failed to send contact email' };
+    const errorMessage = error instanceof Error ? error.message : 'Failed to send contact email';
+    return { success: false, message: errorMessage };
   }
 }
 
 export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.log('Email not configured. Job application data:', data);
-    return { success: true, message: 'Email configuration not set up - logged to console' };
-  }
-
   try {
-    const transporter = createTransporter();
+    const provider = EMAIL_PROVIDER;
+    const fromEmail = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.EMAIL_USER || process.env.GRAPH_SENDER || '';
+    const toAddress = process.env.JOBS_EMAIL || 'tghiwot@vexita.se';
 
     const attachments = [];
     
@@ -144,11 +209,8 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
       });
     }
 
-    const mailOptions = {
-      from: `"Vexita Job Applications" <${process.env.EMAIL_USER}>`,
-      to: process.env.JOBS_EMAIL || 'tghiwot@vexita.se',
-      subject: `New Job Application: ${data.jobTitle} - ${data.firstName} ${data.lastName}`,
-      html: `
+    const subject = `New Job Application: ${data.jobTitle} - ${data.firstName} ${data.lastName}`;
+    const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3982a3;">New Job Application</h2>
 
@@ -183,20 +245,31 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
           <hr style="margin: 30px 0;">
           <p style="color: #6c757d; font-size: 12px;"><em>Submitted at: ${new Date().toISOString().replace('T', ' ').substring(0, 19)} UTC</em></p>
         </div>
-      `,
-      replyTo: data.email,
-      attachments,
-    };
+      `;
 
-    // Send the main application email to the company
-    await transporter.sendMail(mailOptions);
+    if (provider === 'graph') {
+      const fromUpn = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      await graphSendMail(fromUpn, [toAddress], subject, html, data.email);
+    } else {
+      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.log('SMTP not configured. Job application data:', data);
+        return { success: true, message: 'Email configuration not set up - logged to console' };
+      }
+      const transporter = createTransporter();
+      const mailOptions = {
+        from: `"Vexita Job Applications" <${fromEmail}>`,
+        to: toAddress,
+        subject,
+        html,
+        replyTo: data.email,
+        attachments,
+      };
+      await transporter.sendMail(mailOptions);
+    }
 
     // Send auto-reply confirmation to the applicant
-    const autoReplyOptions = {
-      from: `"Vexita" <${process.env.EMAIL_USER}>`,
-      to: data.email,
-      subject: `Application Received: ${data.jobTitle} Position`,
-      html: `
+    const autoReplySubject = `Application Received: ${data.jobTitle} Position`;
+    const autoReplyHtml = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3982a3;">Thank you for your application!</h2>
 
@@ -214,7 +287,7 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
 
           <p>Our team will review your application and get back to you within 5-7 business days. If your qualifications match our requirements, we will contact you to schedule an interview.</p>
 
-          <p>If you have any questions about your application or the position, please don't hesitate to contact us at <a href="mailto:${process.env.JOBS_EMAIL || 'job@vexita.se'}">${process.env.JOBS_EMAIL || 'job@vexita.se'}</a>.</p>
+          <p>If you have any questions about your application or the position, please don't hesitate to contact us at <a href="mailto:${process.env.JOBS_EMAIL || 'jobb@vexita.se'}">${process.env.JOBS_EMAIL || 'jobb@vexita.se'}</a>.</p>
 
           <p>Best regards,<br>
           <strong>Vexita Team</strong></p>
@@ -222,14 +295,27 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
           <hr style="margin: 30px 0;">
           <p style="color: #6c757d; font-size: 12px;">This is an automated confirmation email. Please do not reply to this email.</p>
         </div>
-      `,
-    };
+      `;
 
-    await transporter.sendMail(autoReplyOptions);
+    if (provider === 'graph') {
+      const fromUpn = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      await graphSendMail(fromUpn, [data.email], autoReplySubject, autoReplyHtml, process.env.JOBS_EMAIL || fromEmail);
+    } else {
+      const transporter = createTransporter();
+      const autoReplyOptions = {
+        from: `"Vexita" <${fromEmail}>`,
+        to: data.email,
+        subject: autoReplySubject,
+        replyTo: process.env.JOBS_EMAIL || fromEmail,
+        html: autoReplyHtml,
+      };
+      await transporter.sendMail(autoReplyOptions);
+    }
 
     return { success: true, message: 'Job application email sent successfully with auto-reply' };
   } catch (error) {
     console.error('Error sending job application email:', error);
-    return { success: false, message: 'Failed to send job application email' };
+    const errorMessage = error instanceof Error ? error.message : 'Failed to send job application email';
+    return { success: false, message: errorMessage };
   }
 }

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import '../globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { getDictionary } from '@/app/dictionaries';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -18,14 +19,15 @@ const geistMono = Geist_Mono({
 export default async function RootLayout({ children, params }: Readonly<{ children: React.ReactNode; params: Promise<{ lang: string }> }>) {
   const { lang } = await params;
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
+  const dict = await getDictionary(validLang);
   return (
     <html lang={validLang}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
-        <Header lang={validLang} />
+        <Header lang={validLang} dict={dict} />
         <div className="flex-grow flex flex-col">
           {children}
         </div>
-        <Footer lang={validLang} />
+        <Footer lang={validLang} dict={dict} />
       </body>
     </html>
   );

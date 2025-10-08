@@ -1,6 +1,6 @@
 import 'server-only';
 
-interface Dictionary {
+export interface Dictionary {
   // Common/Navigation
   welcome: string;
   description: string;
