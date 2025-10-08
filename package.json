@@ -12,6 +12,7 @@
     "verify:smtp": "node scripts/verify-smtp.js"
   },
   "dependencies": {
+    "@aws-sdk/client-ssm": "^3.901.0",
     "@formatjs/intl-localematcher": "^0.6.1",
     "@types/nodemailer": "^6.4.17",
     "i18next": "^25.0.1",
