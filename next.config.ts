@@ -27,6 +27,20 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['@formatjs/intl-localematcher', 'negotiator'],
   },
+
+  // Environment variables for Amplify
+  env: {
+    EMAIL_PROVIDER: process.env.EMAIL_PROVIDER,
+    TENANT_ID: process.env.TENANT_ID,
+    CLIENT_ID: process.env.CLIENT_ID,
+    CLIENT_SECRET: process.env.CLIENT_SECRET,
+    GRAPH_SENDER: process.env.GRAPH_SENDER,
+    FROM_EMAIL: process.env.FROM_EMAIL,
+    CONTACT_FROM_EMAIL: process.env.CONTACT_FROM_EMAIL,
+    JOBS_FROM_EMAIL: process.env.JOBS_FROM_EMAIL,
+    CONTACT_EMAIL: process.env.CONTACT_EMAIL,
+    JOBS_EMAIL: process.env.JOBS_EMAIL,
+  },
 };
 
 export default nextConfig;

@@ -1,8 +1,9 @@
 import nodemailer from 'nodemailer';
 import type { SentMessageInfo } from 'nodemailer';
+import { getEmailConfig } from './aws-config';
 
 // Simple provider switch: smtp | graph (default smtp)
-const EMAIL_PROVIDER = (process.env.EMAIL_PROVIDER || 'smtp').toLowerCase();
+let emailConfig: any = null;
 
 // Microsoft Graph helpers (used when EMAIL_PROVIDER=graph)
 async function getGraphToken(): Promise<string> {
@@ -85,10 +86,15 @@ export interface JobApplicationEmailData {
 
 export async function sendContactEmail(data: ContactEmailData) {
   try {
-    const provider = EMAIL_PROVIDER;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || process.env.FROM_EMAIL || process.env.EMAIL_USER || process.env.GRAPH_SENDER || '';
-    const toAddress = process.env.CONTACT_EMAIL || 'tghiwot@vexita.se';
-    const replyTo = process.env.CONTACT_EMAIL || fromEmail;
+    // Load email configuration
+    if (!emailConfig) {
+      emailConfig = await getEmailConfig();
+    }
+    
+    const provider = emailConfig.EMAIL_PROVIDER || 'graph';
+    const fromEmail = emailConfig.CONTACT_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
+    const toAddress = emailConfig.CONTACT_EMAIL || 'tghiwot@vexita.se';
+    const replyTo = emailConfig.CONTACT_EMAIL || fromEmail;
 
     console.log('Email provider:', provider);
     console.log('From email:', fromEmail);
@@ -125,10 +131,10 @@ export async function sendContactEmail(data: ContactEmailData) {
       `;
 
     if (provider === 'graph') {
-      const fromUpn = process.env.CONTACT_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      const fromUpn = emailConfig.CONTACT_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
       await graphSendMail(fromUpn, [toAddress], subject, html, data.email);
     } else {
-      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      if (!emailConfig.EMAIL_USER || !emailConfig.EMAIL_PASS) {
         console.log('SMTP not configured. Contact form data:', data);
         return { success: true, message: 'Email configuration not set up - logged to console' };
       }
@@ -166,7 +172,7 @@ export async function sendContactEmail(data: ContactEmailData) {
       `;
 
     if (provider === 'graph') {
-      const fromUpn = process.env.CONTACT_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      const fromUpn = emailConfig.CONTACT_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
       await graphSendMail(fromUpn, [data.email], autoReplySubject, autoReplyHtml, replyTo);
     } else {
       const transporter = createTransporter();
@@ -190,9 +196,14 @@ export async function sendContactEmail(data: ContactEmailData) {
 
 export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
   try {
-    const provider = EMAIL_PROVIDER;
-    const fromEmail = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.EMAIL_USER || process.env.GRAPH_SENDER || '';
-    const toAddress = process.env.JOBS_EMAIL || 'tghiwot@vexita.se';
+    // Load email configuration
+    if (!emailConfig) {
+      emailConfig = await getEmailConfig();
+    }
+    
+    const provider = emailConfig.EMAIL_PROVIDER || 'graph';
+    const fromEmail = emailConfig.JOBS_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
+    const toAddress = emailConfig.JOBS_EMAIL || 'tghiwot@vexita.se';
 
     console.log('Email provider:', provider);
     console.log('From email:', fromEmail);
@@ -257,10 +268,10 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
       `;
 
     if (provider === 'graph') {
-      const fromUpn = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
+      const fromUpn = emailConfig.JOBS_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
       await graphSendMail(fromUpn, [toAddress], subject, html, data.email);
     } else {
-      if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      if (!emailConfig.EMAIL_USER || !emailConfig.EMAIL_PASS) {
         console.log('SMTP not configured. Job application data:', data);
         return { success: true, message: 'Email configuration not set up - logged to console' };
       }
@@ -307,15 +318,15 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
       `;
 
     if (provider === 'graph') {
-      const fromUpn = process.env.JOBS_FROM_EMAIL || process.env.FROM_EMAIL || process.env.GRAPH_SENDER || '';
-      await graphSendMail(fromUpn, [data.email], autoReplySubject, autoReplyHtml, process.env.JOBS_EMAIL || fromEmail);
+      const fromUpn = emailConfig.JOBS_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
+      await graphSendMail(fromUpn, [data.email], autoReplySubject, autoReplyHtml, emailConfig.JOBS_EMAIL || fromEmail);
     } else {
       const transporter = createTransporter();
       const autoReplyOptions = {
         from: `"Vexita" <${fromEmail}>`,
         to: data.email,
         subject: autoReplySubject,
-        replyTo: process.env.JOBS_EMAIL || fromEmail,
+        replyTo: emailConfig.JOBS_EMAIL || fromEmail,
         html: autoReplyHtml,
       };
       await transporter.sendMail(autoReplyOptions);

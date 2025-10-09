@@ -6,6 +6,17 @@ frontend:
         - npm ci
     build:
       commands:
+        - echo "Environment variables:"
+        - echo "EMAIL_PROVIDER=$EMAIL_PROVIDER"
+        - echo "TENANT_ID=$TENANT_ID"
+        - echo "CLIENT_ID=$CLIENT_ID"
+        - echo "CLIENT_SECRET=$CLIENT_SECRET"
+        - echo "GRAPH_SENDER=$GRAPH_SENDER"
+        - echo "FROM_EMAIL=$FROM_EMAIL"
+        - echo "CONTACT_FROM_EMAIL=$CONTACT_FROM_EMAIL"
+        - echo "JOBS_FROM_EMAIL=$JOBS_FROM_EMAIL"
+        - echo "CONTACT_EMAIL=$CONTACT_EMAIL"
+        - echo "JOBS_EMAIL=$JOBS_EMAIL"
         - npm run build
   artifacts:
     baseDirectory: .next
