@@ -7,9 +7,13 @@ let emailConfig: any = null;
 
 // Microsoft Graph helpers (used when EMAIL_PROVIDER=graph)
 async function getGraphToken(): Promise<string> {
-  const tenantId = process.env.TENANT_ID;
-  const clientId = process.env.CLIENT_ID;
-  const clientSecret = process.env.CLIENT_SECRET;
+  if (!emailConfig) {
+    emailConfig = await getEmailConfig();
+  }
+  
+  const tenantId = emailConfig.TENANT_ID;
+  const clientId = emailConfig.CLIENT_ID;
+  const clientSecret = emailConfig.CLIENT_SECRET;
   if (!tenantId || !clientId || !clientSecret) {
     throw new Error('Graph credentials missing: TENANT_ID, CLIENT_ID, CLIENT_SECRET');
   }
@@ -31,17 +35,31 @@ async function getGraphToken(): Promise<string> {
   return json.access_token as string;
 }
 
-async function graphSendMail(fromUpn: string, to: string[], subject: string, html: string, replyTo?: string): Promise<void> {
+async function graphSendMail(fromUpn: string, to: string[], subject: string, html: string, replyTo?: string, attachments?: any[]): Promise<void> {
   const token = await getGraphToken();
+  
+  const message: any = {
+    subject,
+    body: { contentType: 'HTML', content: html },
+    toRecipients: to.map((t) => ({ emailAddress: { address: t } })),
+    replyTo: replyTo ? [{ emailAddress: { address: replyTo } }] : [],
+  };
+
+  // Add attachments if provided
+  if (attachments && attachments.length > 0) {
+    message.attachments = attachments.map(att => ({
+      "@odata.type": "#microsoft.graph.fileAttachment",
+      name: att.filename,
+      contentBytes: att.content.toString('base64'),
+      contentType: att.contentType || 'application/octet-stream'
+    }));
+  }
+
   const payload = {
-    message: {
-      subject,
-      body: { contentType: 'HTML', content: html },
-      toRecipients: to.map((t) => ({ emailAddress: { address: t } })),
-      replyTo: replyTo ? [{ emailAddress: { address: replyTo } }] : [],
-    },
+    message,
     saveToSentItems: true,
   };
+  
   const resp = await fetch(`https://graph.microsoft.com/v1.0/users/${encodeURIComponent(fromUpn)}/sendMail`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
@@ -54,13 +72,17 @@ async function graphSendMail(fromUpn: string, to: string[], subject: string, htm
 
 // Create reusable transporter object using SMTP transport
 const createTransporter = () => {
+  if (!emailConfig) {
+    throw new Error('Email config not loaded');
+  }
+  
   return nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || 'smtp.office365.com',
-    port: parseInt(process.env.EMAIL_PORT || '587'),
+    host: emailConfig.EMAIL_HOST || 'smtp.office365.com',
+    port: parseInt(emailConfig.EMAIL_PORT || '587'),
     secure: false, // true for 465, false for other ports
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: emailConfig.EMAIL_USER,
+      pass: emailConfig.EMAIL_PASS,
     },
   });
 };
@@ -269,7 +291,7 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
 
     if (provider === 'graph') {
       const fromUpn = emailConfig.JOBS_FROM_EMAIL || emailConfig.FROM_EMAIL || emailConfig.GRAPH_SENDER || '';
-      await graphSendMail(fromUpn, [toAddress], subject, html, data.email);
+      await graphSendMail(fromUpn, [toAddress], subject, html, data.email, attachments);
     } else {
       if (!emailConfig.EMAIL_USER || !emailConfig.EMAIL_PASS) {
         console.log('SMTP not configured. Job application data:', data);

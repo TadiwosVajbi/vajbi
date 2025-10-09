@@ -29,5 +29,10 @@ export async function getEmailConfig() {
     JOBS_FROM_EMAIL: process.env.JOBS_FROM_EMAIL || await getParameter('/vexita/JOBS_FROM_EMAIL'),
     CONTACT_EMAIL: process.env.CONTACT_EMAIL || await getParameter('/vexita/CONTACT_EMAIL'),
     JOBS_EMAIL: process.env.JOBS_EMAIL || await getParameter('/vexita/JOBS_EMAIL'),
+    // SMTP variables
+    EMAIL_HOST: process.env.EMAIL_HOST || await getParameter('/vexita/EMAIL_HOST'),
+    EMAIL_PORT: process.env.EMAIL_PORT || await getParameter('/vexita/EMAIL_PORT'),
+    EMAIL_USER: process.env.EMAIL_USER || await getParameter('/vexita/EMAIL_USER'),
+    EMAIL_PASS: process.env.EMAIL_PASS || await getParameter('/vexita/EMAIL_PASS'),
   };
 }
