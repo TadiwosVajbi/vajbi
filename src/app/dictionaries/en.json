@@ -82,6 +82,10 @@
   "growthOpportunitiesDescription": "Continuous learning and development opportunities to advance your career.",
   "dontSeeRightPosition": "Don't see the right position?",
   "dontSeeRightPositionDescription": "We're always looking for talented individuals. Send us your CV and we'll keep you in mind for future opportunities.",
+  "backToCareers": "Back to Careers",
+  "aboutTheRole": "ABOUT THE ROLE",
+  "candidatesShould": "Candidates should",
+  "languageRequirements": "Language requirements",
   "aboutHero": "About Vexita AB",
   "aboutHeroDescription": "Your trusted partner for innovative technology solutions",
   "ourStory": "Our Story",
@@ -116,5 +120,109 @@
   "company": "Company",
   "aboutUs": "About Us",
   "ourServices": "Our Services",
-  "allRightsReserved": "All rights reserved"
+  "allRightsReserved": "All rights reserved",
+  "jobOpenings": {
+    "javaDeveloper": {
+      "title": "Java Developer",
+      "shortDescription": "Software Development and Engineering",
+      "aboutRole": "We are looking for a Java developer with 6+ years of experience in the field. If you have a solid technical background, have a passion for software development, but are also curious about other technologies - then we have a very exciting opportunity for you.",
+      "requirements": [
+        "Thorough backend experience in Java (6+ years)",
+        "Excellent knowledge of Spring/SpringBoot",
+        "Integration projects in APIs",
+        "TDD (Test-Driven Development)",
+        "Understanding of cloud-based web applications infra and deployment (AWS, Docker, CI/CD, Kubernetes/EKS, Jenkins)",
+        "Relational databases (preferably Oracle)",
+        "Git",
+        "Maven",
+        "Scrum",
+        "Interest in investigating, explaining, documenting, and teaching, as well as coding and quality assurance work",
+        "Willingness to execute and own both big and small tasks",
+        "Pragmatic mindset enough to enjoy improvement and automation"
+      ],
+      "candidatesShould": [
+        "Be highly professional and solution-oriented with a focus on the client's business needs",
+        "Be highly responsible and reliable",
+        "Have great social skills",
+        "Flexible to travel"
+      ],
+      "languageRequirements": [
+        "English (Fluent)"
+      ]
+    },
+    "dataEngineer": {
+      "title": "Data Engineer",
+      "shortDescription": "Software Development and Engineering",
+      "aboutRole": "We are looking for a Data Engineer with 5+ years of experience in data engineering and analytics. If you have a passion for building scalable data solutions and working with modern data technologies, this is the perfect opportunity for you.",
+      "requirements": [
+        "5+ years of experience in data engineering",
+        "Strong knowledge of Python, SQL, and data modeling",
+        "Experience with cloud data platforms (AWS, Azure, or GCP)",
+        "Knowledge of data pipeline tools (Apache Airflow, Luigi, or similar)",
+        "Experience with big data technologies (Spark, Hadoop, Kafka)",
+        "Understanding of data warehousing concepts",
+        "Experience with version control (Git)",
+        "Knowledge of containerization (Docker, Kubernetes)"
+      ],
+      "candidatesShould": [
+        "Be detail-oriented and analytical",
+        "Have strong problem-solving skills",
+        "Be able to work independently and in teams",
+        "Have excellent communication skills"
+      ],
+      "languageRequirements": [
+        "English (Fluent)"
+      ]
+    },
+    "fullstackDeveloper": {
+      "title": "Fullstack Utvecklare",
+      "shortDescription": "Software Development and Engineering",
+      "aboutRole": "Vi söker en Fullstack Utvecklare med 4+ års erfarenhet av modern webbutveckling. Om du har en passion för att bygga användarvänliga applikationer och arbeta med både frontend och backend, så har vi en spännande möjlighet för dig.",
+      "requirements": [
+        "4+ års erfarenhet av fullstack utveckling",
+        "Stark kunskap inom React, Node.js och TypeScript",
+        "Erfarenhet av databaser (PostgreSQL, MongoDB)",
+        "Kunskap om cloud-plattformar (AWS, Azure)",
+        "Erfarenhet av Git och moderna utvecklingsworkflows",
+        "Förståelse för RESTful APIs och GraphQL",
+        "Erfarenhet av testning (Jest, Cypress)",
+        "Kunskap om CI/CD pipelines"
+      ],
+      "candidatesShould": [
+        "Vara kreativ och lösningsorienterad",
+        "Ha starka kommunikationsfärdigheter",
+        "Vara flexibel och anpassningsbar",
+        "Ha en passion för att lära sig nya teknologier"
+      ],
+      "languageRequirements": [
+        "Svenska (Flytande)",
+        "Engelska (Flytande)"
+      ]
+    },
+    "dotnetDeveloper": {
+      "title": ".Net Utvecklare",
+      "shortDescription": "Software Development and Engineering",
+      "aboutRole": "Vi söker en .NET Utvecklare med 5+ års erfarenhet av .NET-utveckling. Om du har en stark teknisk bakgrund och passion för att bygga robusta applikationer, så har vi en utmärkt möjlighet för dig.",
+      "requirements": [
+        "5+ års erfarenhet av .NET utveckling",
+        "Stark kunskap inom C#, ASP.NET Core och Entity Framework",
+        "Erfarenhet av cloud-plattformar (Azure, AWS)",
+        "Kunskap om microservices arkitektur",
+        "Erfarenhet av SQL Server och databasdesign",
+        "Kunskap om Git och Azure DevOps",
+        "Erfarenhet av testning (xUnit, NUnit)",
+        "Förståelse för CI/CD pipelines"
+      ],
+      "candidatesShould": [
+        "Vara kvalitetsmedveten och detaljorienterad",
+        "Ha starka analytiska färdigheter",
+        "Vara en teamspelare med god kommunikation",
+        "Ha en passion för kontinuerlig förbättring"
+      ],
+      "languageRequirements": [
+        "Svenska (Flytande)",
+        "Engelska (Flytande)"
+      ]
+    }
+  }
 }

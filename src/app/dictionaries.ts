@@ -73,6 +73,10 @@ export interface Dictionary {
   growthOpportunitiesDescription: string;
   dontSeeRightPosition: string;
   dontSeeRightPositionDescription: string;
+  backToCareers: string;
+  aboutTheRole: string;
+  candidatesShould: string;
+  languageRequirements: string;
 
   // About Page
   aboutHero: string;
@@ -112,6 +116,18 @@ export interface Dictionary {
   aboutUs: string;
   ourServices: string;
   allRightsReserved: string;
+
+  // Job Openings
+  jobOpenings: {
+    [key: string]: {
+      title: string;
+      shortDescription: string;
+      aboutRole: string;
+      requirements: string[];
+      candidatesShould: string[];
+      languageRequirements: string[];
+    };
+  };
 }
 
 const dictionaries: Record<string, () => Promise<Dictionary>> = {

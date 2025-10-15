@@ -5,54 +5,11 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
   const validLang = ['en', 'sv'].includes(lang) ? lang : 'en';
   const dict = await getDictionary(validLang);
 
-  // Sample job openings - in a real app, this would come from a database or CMS
-  const jobOpenings = [
-    {
-      id: 1,
-      title: "Front End Developer (Contentful)",
-      department: "Software Development and Engineering",
-      location: "Bitola, Skopje",
-      type: "Hybrid",
-      description: "We are looking for a talented Front End Developer with experience in modern web technologies and content management systems.",
-      requirements: [
-        "3+ years of experience with React/Next.js",
-        "Experience with Contentful or similar headless CMS",
-        "Strong knowledge of TypeScript and modern JavaScript",
-        "Experience with responsive design and CSS frameworks",
-        "Knowledge of Git and modern development workflows"
-      ]
-    },
-    {
-      id: 2,
-      title: "Full Stack Developer",
-      department: "Software Development and Engineering", 
-      location: "Malmö, Stockholm",
-      type: "Remote/Hybrid",
-      description: "Join our team as a Full Stack Developer to work on innovative web applications and enterprise solutions.",
-      requirements: [
-        "5+ years of full-stack development experience",
-        "Proficiency in Node.js, React, and database technologies",
-        "Experience with cloud platforms (AWS, Azure, or GCP)",
-        "Strong problem-solving and communication skills",
-        "Experience with agile development methodologies"
-      ]
-    },
-    {
-      id: 3,
-      title: "DevOps Engineer",
-      department: "Infrastructure and Operations",
-      location: "Stockholm, Göteborg", 
-      type: "Hybrid",
-      description: "We're seeking a DevOps Engineer to help streamline our development processes and maintain our cloud infrastructure.",
-      requirements: [
-        "Experience with containerization (Docker, Kubernetes)",
-        "Knowledge of CI/CD pipelines and automation tools",
-        "Familiarity with cloud platforms and infrastructure as code",
-        "Strong scripting skills (Python, Bash, or similar)",
-        "Experience with monitoring and logging solutions"
-      ]
-    }
-  ];
+  // Job openings automatically generated from translation service
+  const jobOpenings = Object.keys(dict.jobOpenings).map(key => ({
+    id: key,
+    key: key
+  }));
 
   return (
     <main>
@@ -73,54 +30,29 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">{dict.currentOpenings}</h2>
           
-          <div className="space-y-8">
+          <div className="max-w-4xl mx-auto">
             {jobOpenings.map((job) => (
-              <div key={job.id} className="bg-white rounded-lg shadow-md border border-gray-200 p-6 hover:shadow-lg transition-shadow">
-                <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-4">
-                  <div className="mb-4 lg:mb-0">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{job.title}</h3>
-                    <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                      <span className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                        {job.department}
-                      </span>
-                      <span className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        {job.location}
-                      </span>
-                      <span className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        {job.type}
-                      </span>
-                    </div>
+              <a
+                key={job.id}
+                href={`/${validLang}/careers/${job.id}`}
+                className="block border-b border-gray-300 py-6 hover:bg-gray-50 transition-colors group"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-1 group-hover:text-[#3982a3] transition-colors">
+                      {dict.jobOpenings[job.key].title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {dict.jobOpenings[job.key].shortDescription}
+                    </p>
                   </div>
-                  
-                  <a
-                    href={`/${validLang}/careers/apply?job=${job.id}`}
-                    className="inline-block bg-[#3982a3] text-white px-6 py-3 rounded-md font-medium hover:bg-[#2c6a87] transition-colors text-center lg:text-left"
-                  >
-                    {dict.applyNow}
-                  </a>
+                  <div className="ml-4 text-gray-400 group-hover:text-[#3982a3] transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-                
-                <p className="text-gray-700 mb-4">{job.description}</p>
-                
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{dict.requirements}</h4>
-                  <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    {job.requirements.map((req, index) => (
-                      <li key={index}>{req}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

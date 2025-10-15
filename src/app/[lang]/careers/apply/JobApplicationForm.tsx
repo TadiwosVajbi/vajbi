@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 
-export default function JobApplicationForm() {
-  const [jobTitle, setJobTitle] = useState('');
-  const searchParams = useSearchParams();
+interface JobApplicationFormProps {
+  jobTitle: string;
+}
+
+export default function JobApplicationForm({ jobTitle }: JobApplicationFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
@@ -21,15 +22,7 @@ export default function JobApplicationForm() {
 
   useEffect(() => {
     setMounted(true);
-    // Get job ID from URL params and set job title
-    const jobId = searchParams.get('job');
-    const jobTitles: { [key: string]: string } = {
-      '1': 'Front End Developer (Contentful)',
-      '2': 'Full Stack Developer',
-      '3': 'DevOps Engineer'
-    };
-    setJobTitle(jobTitles[jobId || ''] || 'General Application');
-  }, [searchParams]);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

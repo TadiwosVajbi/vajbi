@@ -183,8 +183,6 @@ export async function sendContactEmail(data: ContactEmailData) {
 
           <p>Our team will review your inquiry and respond within 24-48 hours during business days.</p>
 
-          <p>If you have an urgent matter, please feel free to contact us directly at <a href="mailto:${process.env.CONTACT_EMAIL || 'info@vexita.se'}">${process.env.CONTACT_EMAIL || 'info@vexita.se'}</a>.</p>
-
           <p>Best regards,<br>
           <strong>Vexita Team</strong></p>
 
@@ -328,8 +326,6 @@ export async function sendJobApplicationEmail(data: JobApplicationEmailData) {
           </ul>
 
           <p>Our team will review your application and get back to you within 5-7 business days. If your qualifications match our requirements, we will contact you to schedule an interview.</p>
-
-          <p>If you have any questions about your application or the position, please don't hesitate to contact us at <a href="mailto:${process.env.JOBS_EMAIL || 'jobb@vexita.se'}">${process.env.JOBS_EMAIL || 'jobb@vexita.se'}</a>.</p>
 
           <p>Best regards,<br>
           <strong>Vexita Team</strong></p>
