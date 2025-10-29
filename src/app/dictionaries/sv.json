@@ -124,7 +124,7 @@
   "jobOpenings": {
     "javaDeveloper": {
       "title": "Java Utvecklare",
-      "shortDescription": "Mjukvaruutveckling och teknik - Bulgarien - Sofia",
+      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
       "aboutRole": "Vi söker en Java-utvecklare med 6+ års erfarenhet inom området. Om du har en solid teknisk bakgrund, passion för mjukvaruutveckling, men också är nyfiken på andra teknologier - så har vi en mycket spännande möjlighet för dig.",
       "requirements": [
         "Grundlig backend-erfarenhet inom Java (6+ år)",
@@ -152,7 +152,7 @@
     },
     "dataEngineer": {
       "title": "Data Engineer",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Stockholm",
+      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
       "aboutRole": "Vi söker en Data Engineer med 5+ års erfarenhet inom data engineering och analys. Om du har en passion för att bygga skalbara datalösningar och arbeta med moderna datateknologier, så är detta den perfekta möjligheten för dig.",
       "requirements": [
         "5+ års erfarenhet inom data engineering",
@@ -176,7 +176,7 @@
     },
     "fullstackDeveloper": {
       "title": "Fullstack Utvecklare",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Stockholm",
+      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
       "aboutRole": "Vi söker en Fullstack Utvecklare med 4+ års erfarenhet av modern webbutveckling. Om du har en passion för att bygga användarvänliga applikationer och arbeta med både frontend och backend, så har vi en spännande möjlighet för dig.",
       "requirements": [
         "4+ års erfarenhet av fullstack utveckling",
@@ -201,7 +201,7 @@
     },
     "dotnetDeveloper": {
       "title": ".Net Utvecklare",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Stockholm",
+      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
       "aboutRole": "Vi söker en .NET Utvecklare med 5+ års erfarenhet av .NET-utveckling. Om du har en stark teknisk bakgrund och passion för att bygga robusta applikationer, så har vi en utmärkt möjlighet för dig.",
       "requirements": [
         "5+ års erfarenhet av .NET utveckling",
