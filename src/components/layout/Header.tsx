@@ -13,7 +13,7 @@ const Header = ({ lang, dict }: HeaderProps) => {
       <div className="container mx-auto flex justify-between items-center">
         <Link href={`/${lang}`} className="flex items-center">
           <img
-            src="/vexita_it_logo_with_trademark.png"
+            src="/vexita_logo.png"
             alt="Vexita AB Logo"
             width={1536}
             height={400}

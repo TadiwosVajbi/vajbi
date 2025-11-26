@@ -5,8 +5,8 @@ export const metadata: Metadata = {
   title: 'Vexita AB',
   description: 'Your trusted partner for innovative technology solutions',
   icons: {
-    icon: '/vexita_icon_clean.png',
-    apple: '/vexita_icon_clean.png',
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
