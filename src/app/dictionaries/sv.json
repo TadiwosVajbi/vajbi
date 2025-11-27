@@ -69,10 +69,11 @@
   "dedicatedSupport": "Dedikerad support",
   "dedicatedSupportDescription": "24/7 support och underhåll för att hålla dina system igång smidigt.",
   "joinOurTeam": "Varmt välkommen i vårt team",
-  "joinOurTeamDescription": "Bygg din karriär tillsammans med oss och bidra till att forma framtiden för teknikkonsulting",
+  "joinOurTeamDescription": "Vi söker Utvecklare/Ingenjör med känsla för både teknik och design till vårt växande team på Vexita AB. Hos oss får du arbeta i uppdrag hos spännande kunder inom privat och offentlig sektor, där du bidrar till att bygga användarvänliga och moderna digitala lösningar. Som anställd konsult matchar vi dig med uppdrag som passar din kompetens, erfarenhet och dina karriärmål.",
   "currentOpenings": "Aktuella tjänster",
   "applyNow": "Ansök nu",
   "requirements": "Krav:",
+  "goodToHave": "Meriterande:",
   "whyWorkWithUs": "Varför jobba med oss?",
   "innovationFocus": "Innovationsfokus",
   "innovationFocusDescription": "Arbeta med banbrytande teknologier och innovativa lösningar som gör verklig skillnad.",
@@ -122,53 +123,83 @@
   "ourServices": "Våra tjänster",
   "allRightsReserved": "Alla rättigheter förbehållna",
   "jobOpenings": {
-    "javaDeveloper": {
-      "title": "Java Utvecklare",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
-      "aboutRole": "Vi söker en Java-utvecklare med 6+ års erfarenhet inom området. Om du har en solid teknisk bakgrund, passion för mjukvaruutveckling, men också är nyfiken på andra teknologier - så har vi en mycket spännande möjlighet för dig.",
+    "backendDeveloper": {
+      "title": "Backend Utvecklare",
+      "shortDescription": "Mellannivå-Senior Backend Utveckling",
+      "aboutRole": "Vi söker en erfaren Backend Utvecklare med 4-6+ års erfarenhet. Vi välkomnar utvecklare med expertis inom olika backend-teknologier inklusive Java, .NET/C#, Go, Python, Node.js eller liknande. Om du har en solid teknisk bakgrund, passion för att bygga skalbara backend-system och är nyfiken på moderna teknologier, har vi en spännande möjlighet för dig.",
       "requirements": [
-        "Grundlig backend-erfarenhet inom Java (6+ år)",
-        "Utmärkt kunskap inom Spring/SpringBoot",
-        "Integrationsprojekt inom API:er",
-        "TDD (Test-Driven Development)",
-        "Förståelse för molnbaserade webbapplikationers infrastruktur och deployment (AWS, Docker, CI/CD, Kubernetes/EKS, Jenkins)",
-        "Relationsdatabaser (företrädesvis Oracle)",
-        "Git",
-        "Maven",
-        "Scrum",
-        "Intresse för att undersöka, förklara, dokumentera och lära ut, samt kodning och kvalitetssäkring",
-        "Beredskap att utföra och äga både stora och små uppgifter",
-        "Pragmatisk mindset för att njuta av förbättring och automatisering"
+        "4-6+ års backend-utvecklingserfarenhet inom ett eller flera språk (Java, .NET/C#, Go, Python, Node.js eller liknande)",
+        "Stark förståelse för RESTful APIs och API-designprinciper",
+        "Erfarenhet av microservices-arkitektur och distribuerade system",
+        "Kunskap om relationsdatabaser (PostgreSQL, MySQL, SQL Server, Oracle) och/eller NoSQL-databaser (MongoDB, Cassandra, DynamoDB)",
+        "Erfarenhet av molnplattformar (AWS, Azure eller GCP)",
+        "Kunskap om containerisering och orkestrering (Docker, Kubernetes)",
+        "Förståelse för CI/CD-pipelines och DevOps-praxis",
+        "Erfarenhet av versionskontroll (Git) och samarbetsutvecklingsworkflows",
+        "Stark kunskap om mjukvarudesignmönster och SOLID-principer",
+        "Erfarenhet av testramverk och TDD/BDD-praxis",
+        "Förståelse för meddelandeköer och händelsedriven arkitektur (RabbitMQ, Kafka, SQS, etc.)",
+        "Kunskap om autentiserings- och auktoriseringsmekanismer (OAuth2, JWT, etc.)"
+      ],
+      "goodToHave": [
+        "Erfarenhet av GraphQL",
+        "Kunskap om serverless-arkitekturer (AWS Lambda, Azure Functions, Google Cloud Functions)",
+        "Erfarenhet av gRPC och protokollbuffertar",
+        "Bekantskap med övervaknings- och observerbarhetsverktyg (Prometheus, Grafana, ELK Stack, Datadog)",
+        "Erfarenhet av Infrastructure as Code (Terraform, CloudFormation, Pulumi)",
+        "Kunskap om cachestrategier (Redis, Memcached)",
+        "Erfarenhet av sökmotorer (Elasticsearch, Solr)",
+        "Förståelse för säkerhetsbästa praxis och säker kodning",
+        "Erfarenhet av Agile/Scrum-metodologier",
+        "Bidrag till open source-projekt"
       ],
       "candidatesShould": [
         "Vara mycket professionell och lösningsorienterad med fokus på kundens affärsbehov",
         "Vara mycket ansvarsfull och pålitlig",
-        "Ha utmärkta sociala färdigheter",
-        "Flexibel att resa"
+        "Ha utmärkta kommunikations- och samarbetsfärdigheter",
+        "Vara flexibel och anpassningsbar till olika teknologier och projektkrav",
+        "Ha en passion för kontinuerligt lärande och hålla sig uppdaterad med branschtrender"
       ],
       "languageRequirements": [
         "Engelska (Flytande)"
       ]
     },
-    "dataEngineer": {
-      "title": "Data Engineer",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
-      "aboutRole": "Vi söker en Data Engineer med 5+ års erfarenhet inom data engineering och analys. Om du har en passion för att bygga skalbara datalösningar och arbeta med moderna datateknologier, så är detta den perfekta möjligheten för dig.",
+    "frontendDeveloper": {
+      "title": "Frontend Utvecklare",
+      "shortDescription": "Mellannivå-Senior Frontend Utveckling",
+      "aboutRole": "Vi söker en erfaren Frontend Utvecklare med 4-6+ års erfarenhet av att bygga moderna, responsiva webbapplikationer. Om du har en passion för att skapa exceptionella användarupplevelser, arbeta med banbrytande frontend-teknologier och samarbeta med tvärfunktionella team, är detta den perfekta möjligheten för dig.",
       "requirements": [
-        "5+ års erfarenhet inom data engineering",
-        "Stark kunskap inom Python, SQL och datamodellering",
-        "Erfarenhet av molndataplattformar (AWS, Azure eller GCP)",
-        "Kunskap om datapipeline-verktyg (Apache Airflow, Luigi eller liknande)",
-        "Erfarenhet av big data-teknologier (Spark, Hadoop, Kafka)",
-        "Förståelse för data warehouse-koncept",
-        "Erfarenhet av versionskontroll (Git)",
-        "Kunskap om containerisering (Docker, Kubernetes)"
+        "4-6+ års frontend-utvecklingserfarenhet",
+        "Stark kompetens inom modern JavaScript (ES6+) och TypeScript",
+        "Expertkunskap inom React, Vue.js eller Angular-ramverk",
+        "Erfarenhet av state management-bibliotek (Redux, Zustand, Vuex, Pinia, NgRx)",
+        "Kunskap om HTML5, CSS3 och moderna CSS-ramverk (Tailwind CSS, Styled Components, CSS Modules)",
+        "Erfarenhet av responsiv design och mobile-first-utveckling",
+        "Kunskap om byggverktyg och bundlers (Webpack, Vite, Parcel, Rollup)",
+        "Erfarenhet av testramverk (Jest, Vitest, React Testing Library, Cypress, Playwright)",
+        "Förståelse för RESTful APIs och GraphQL",
+        "Erfarenhet av versionskontroll (Git) och samarbetsworkflows",
+        "Kunskap om prestandaoptimeringsmetoder och verktyg (Lighthouse, Web Vitals)",
+        "Förståelse för tillgänglighetsstandarder (WCAG) och bästa praxis"
+      ],
+      "goodToHave": [
+        "Erfarenhet av Next.js, Nuxt.js eller Remix",
+        "Kunskap om Progressive Web Apps (PWA)",
+        "Erfarenhet av animationsbibliotek (Framer Motion, GSAP, Lottie)",
+        "Bekantskap med designsystem och komponentbibliotek (Storybook)",
+        "Erfarenhet av micro-frontends-arkitektur",
+        "Kunskap om WebAssembly",
+        "Erfarenhet av server-side rendering (SSR) och statisk webbplatsgenerering (SSG)",
+        "Förståelse för SEO-bästa praxis",
+        "Erfarenhet av CI/CD-pipelines för frontend-applikationer",
+        "Kunskap om Web3 och blockchain-teknologier"
       ],
       "candidatesShould": [
-        "Vara detaljorienterad och analytisk",
+        "Vara mycket kreativ och användarfokuserad",
+        "Ha utmärkt uppmärksamhet på detaljer och designsinne",
+        "Vara samarbetsvillig och kunna arbeta effektivt med designers och backend-utvecklare",
         "Ha starka problemlösningsfärdigheter",
-        "Kunna arbeta självständigt och i team",
-        "Ha utmärkta kommunikationsfärdigheter"
+        "Vara anpassningsbar och ivrig att lära sig nya teknologier"
       ],
       "languageRequirements": [
         "Engelska (Flytande)"
@@ -176,51 +207,288 @@
     },
     "fullstackDeveloper": {
       "title": "Fullstack Utvecklare",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
-      "aboutRole": "Vi söker en Fullstack Utvecklare med 4+ års erfarenhet av modern webbutveckling. Om du har en passion för att bygga användarvänliga applikationer och arbeta med både frontend och backend, så har vi en spännande möjlighet för dig.",
+      "shortDescription": "Mellannivå-Senior Fullstack Utveckling",
+      "aboutRole": "Vi söker en erfaren Fullstack Utvecklare med 4-6+ års erfarenhet som kan arbeta över hela teknikstacken. Om du tycker om att bygga end-to-end-lösningar, arbeta med både frontend- och backend-teknologier och har en passion för att skapa sömlösa användarupplevelser, har vi en spännande möjlighet för dig.",
       "requirements": [
-        "4+ års erfarenhet av fullstack utveckling",
-        "Stark kunskap inom React, Node.js och TypeScript",
-        "Erfarenhet av databaser (PostgreSQL, MongoDB)",
-        "Kunskap om cloud-plattformar (AWS, Azure)",
-        "Erfarenhet av Git och moderna utvecklingsworkflows",
-        "Förståelse för RESTful APIs och GraphQL",
-        "Erfarenhet av testning (Jest, Cypress)",
-        "Kunskap om CI/CD pipelines"
+        "4-6+ års fullstack-utvecklingserfarenhet",
+        "Stark kompetens inom frontend-teknologier (React, Vue.js eller Angular) och modern JavaScript/TypeScript",
+        "Solid backend-utvecklingskompetens inom ett eller flera språk (Node.js, Python, Java, .NET/C#, Go)",
+        "Erfarenhet av RESTful APIs och GraphQL",
+        "Kunskap om databasdesign och hantering (PostgreSQL, MySQL, MongoDB eller liknande)",
+        "Erfarenhet av molnplattformar (AWS, Azure eller GCP)",
+        "Kunskap om containerisering (Docker) och grundläggande orkestreringskoncept",
+        "Förståelse för CI/CD-pipelines och DevOps-praxis",
+        "Erfarenhet av versionskontroll (Git) och samarbetsutveckling",
+        "Stark kunskap om mjukvaruarkitekturmönster (MVC, MVP, MVVM, Clean Architecture)",
+        "Erfarenhet av testning på både frontend- och backend-nivå",
+        "Förståelse för autentiserings- och auktoriseringsmekanismer"
+      ],
+      "goodToHave": [
+        "Erfarenhet av fullstack-ramverk (Next.js, Nuxt.js, Remix, NestJS)",
+        "Kunskap om microservices och serverless-arkitekturer",
+        "Erfarenhet av meddelandeköer och händelsedrivna system",
+        "Bekantskap med Infrastructure as Code (Terraform, CloudFormation)",
+        "Erfarenhet av övervaknings- och loggningsverktyg",
+        "Kunskap om cachestrategier (Redis, Memcached)",
+        "Förståelse för säkerhetsbästa praxis över hela stacken",
+        "Erfarenhet av Agile/Scrum-metodologier",
+        "Kunskap om WebSockets och realtidskommunikation",
+        "Erfarenhet av sökmotorer (Elasticsearch)"
       ],
       "candidatesShould": [
-        "Vara kreativ och lösningsorienterad",
-        "Ha starka kommunikationsfärdigheter",
-        "Vara flexibel och anpassningsbar",
-        "Ha en passion för att lära sig nya teknologier"
+        "Vara mångsidig och kunna arbeta över olika teknikstackar",
+        "Ha utmärkta kommunikationsfärdigheter för att samarbeta med både frontend- och backend-team",
+        "Vara lösningsorienterad med en holistisk förståelse för mjukvaruutveckling",
+        "Ha starka problemlösnings- och felsökningsfärdigheter",
+        "Vara anpassningsbar och villig att lära sig nya teknologier"
       ],
       "languageRequirements": [
-        "Svenska (Flytande)",
         "Engelska (Flytande)"
       ]
     },
-    "dotnetDeveloper": {
-      "title": ".Net Utvecklare",
-      "shortDescription": "Mjukvaruutveckling och teknik - Sverige - Malmö",
-      "aboutRole": "Vi söker en .NET Utvecklare med 5+ års erfarenhet av .NET-utveckling. Om du har en stark teknisk bakgrund och passion för att bygga robusta applikationer, så har vi en utmärkt möjlighet för dig.",
+    "qaTestLead": {
+      "title": "QA & Test Lead",
+      "shortDescription": "Mellannivå-Senior Kvalitetssäkring och Testning",
+      "aboutRole": "Vi söker en erfaren QA & Test Lead med 4-6+ års erfarenhet inom kvalitetssäkring och testautomatisering. Om du har en passion för att säkerställa mjukvarukvalitet, leda testinitiativ och implementera moderna teststrategier, är detta en utmärkt möjlighet att gå med i vårt team.",
       "requirements": [
-        "5+ års erfarenhet av .NET utveckling",
-        "Stark kunskap inom C#, ASP.NET Core och Entity Framework",
-        "Erfarenhet av cloud-plattformar (Azure, AWS)",
-        "Kunskap om microservices arkitektur",
-        "Erfarenhet av SQL Server och databasdesign",
-        "Kunskap om Git och Azure DevOps",
-        "Erfarenhet av testning (xUnit, NUnit)",
-        "Förståelse för CI/CD pipelines"
+        "4-6+ års erfarenhet inom QA och mjukvarutestning",
+        "Stark kunskap om testautomatiseringsramverk (Selenium, Cypress, Playwright, TestCafe eller liknande)",
+        "Erfarenhet av API-testverktyg (Postman, REST Assured, Karate eller liknande)",
+        "Kompetens inom minst ett programmeringsspråk (Java, Python, JavaScript/TypeScript, C#)",
+        "Erfarenhet av prestandatestverktyg (JMeter, Gatling, K6 eller liknande)",
+        "Kunskap om testhanteringsverktyg (TestRail, Zephyr, qTest eller liknande)",
+        "Förståelse för CI/CD-integration för automatiserad testning",
+        "Erfarenhet av versionskontroll (Git) och samarbetsworkflows",
+        "Stark kunskap om testmetodologier (Agile, BDD, TDD)",
+        "Erfarenhet av databastestning och SQL",
+        "Förståelse för mobiltestning (iOS och Android)",
+        "Kunskap om tillgänglighetstestning och WCAG-standarder"
+      ],
+      "goodToHave": [
+        "Erfarenhet av visuell regressionstestning (Percy, Applitools, Chromatic)",
+        "Kunskap om säkerhetstestning och OWASP Top 10",
+        "Erfarenhet av kontrakttestning (Pact, Spring Cloud Contract)",
+        "Bekantskap med kaosengineering och motståndskraftstestning",
+        "Erfarenhet av testdatahantering och syntetisk datagenerering",
+        "Kunskap om AI/ML-baserade testverktyg",
+        "Erfarenhet av molnbaserade testplattformar (Sauce Labs, BrowserStack, AWS Device Farm)",
+        "Förståelse för observerbarhets- och övervakningsverktyg för testanalys",
+        "Erfarenhet av att leda QA-team eller mentora juniora testare",
+        "ISTQB eller liknande certifieringar"
       ],
       "candidatesShould": [
-        "Vara kvalitetsmedveten och detaljorienterad",
-        "Ha starka analytiska färdigheter",
-        "Vara en teamspelare med god kommunikation",
-        "Ha en passion för kontinuerlig förbättring"
+        "Vara detaljorienterad med ett starkt fokus på kvalitet",
+        "Ha utmärkta analytiska och problemlösningsfärdigheter",
+        "Kunna leda testinitiativ och samarbeta med utvecklingsteam",
+        "Ha starka kommunikationsfärdigheter för att rapportera problem och testresultat effektivt",
+        "Vara proaktiv i att identifiera potentiella kvalitetsproblem tidigt i utvecklingscykeln"
       ],
       "languageRequirements": [
-        "Svenska (Flytande)",
+        "Engelska (Flytande)"
+      ]
+    },
+    "devopsCloud": {
+      "title": "DevOps Ingenjör",
+      "shortDescription": "Mellannivå-Senior Infrastruktur Engineering och Automatisering",
+      "aboutRole": "Vi söker en erfaren DevOps Ingenjör med 4-6+ års erfarenhet av att designa, bygga och automatisera molninfrastruktur. Denna roll fokuserar på infrastruktur engineering, CI/CD-pipelineutveckling och att skapa skalbara, pålitliga system. Om du har en passion för att bygga infrastruktur från grunden, automatisera workflows och arbeta nära utvecklingsteam, har vi en spännande möjlighet för dig.",
+      "requirements": [
+        "4-6+ års erfarenhet inom DevOps, infrastruktur engineering eller molnplattforms engineering",
+        "Stark expertis inom minst en större molnplattform (AWS, Azure eller GCP) med djup förståelse för molntjänster",
+        "Kompetens inom Infrastructure as Code (Terraform, CloudFormation, Pulumi eller Ansible) - detta är viktigt",
+        "Erfarenhet av att designa och bygga containeriserings- och orkestreringslösningar (Docker, Kubernetes, ECS, EKS, AKS, GKE)",
+        "Djup kunskap om att designa och implementera CI/CD-pipelines (Jenkins, GitLab CI, GitHub Actions, Azure DevOps, CircleCI eller liknande)",
+        "Erfarenhet av konfigurationshanteringsverktyg (Ansible, Puppet, Chef)",
+        "Starka skript- och automatiseringsfärdigheter (Bash, Python, PowerShell eller liknande)",
+        "Kunskap om övervaknings- och observerbarhetsarkitektur (Prometheus, Grafana, ELK Stack, Datadog, New Relic, CloudWatch)",
+        "Förståelse för molnnätverk, säkerhetsarkitektur och efterlevnadsramverk",
+        "Erfarenhet av versionskontroll (Git) och GitOps-praxis",
+        "Kunskap om service mesh-teknologier (Istio, Linkerd, Consul)",
+        "Erfarenhet av infrastrukturdesignmönster och bästa praxis"
+      ],
+      "goodToHave": [
+        "Molncertifieringar (AWS Certified Solutions Architect, Azure Solutions Architect, GCP Professional Cloud Architect)",
+        "Erfarenhet av serverless-arkitekturer (Lambda, Azure Functions, Cloud Functions)",
+        "Kunskap om multi-cloud och hybrid cloud-strategier",
+        "Erfarenhet av infrastrukturövervakning och varningar (PagerDuty, Opsgenie)",
+        "Bekantskap med hemlighetshantering (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault)",
+        "Erfarenhet av kostnadsoptimering och molnfinansiell hantering",
+        "Kunskap om kaosengineering och pålitlighetspraxis",
+        "Erfarenhet av plattformsengineering och utvecklarupplevelseoptimering",
+        "Förståelse för säkerhetsskanning och sårbarhetshanteringsverktyg",
+        "Erfarenhet av infrastrukturautomatisering och självbetjäningsplattformar"
+      ],
+      "candidatesShould": [
+        "Vara mycket teknisk med ett starkt engineering-tänk",
+        "Ha utmärkta kommunikationsfärdigheter för att samarbeta med utvecklingsteam om infrastrukturdesign",
+        "Vara proaktiv i att designa skalbara och underhållbara infrastrukturlösningar",
+        "Ha en passion för automatisering, infrastructure as code och kontinuerlig förbättring",
+        "Kunna arbeta med strategiska infrastrukturprojekt och hantera jouransvar vid behov"
+      ],
+      "languageRequirements": [
+        "Engelska (Flytande)"
+      ]
+    },
+    "itSecurity": {
+      "title": "IT-säkerhetsspecialist",
+      "shortDescription": "Mellannivå-Senior IT-säkerhet och Cybersäkerhet",
+      "aboutRole": "Vi söker en erfaren IT-säkerhetsspecialist med 4-6+ års erfarenhet inom cybersäkerhet, säkerhetsarkitektur och riskhantering. Om du har en passion för att skydda system och data, implementera säkerhetsbästa praxis och hålla dig före framväxande hot, är detta en utmärkt möjlighet.",
+      "requirements": [
+        "4-6+ års erfarenhet inom IT-säkerhet, cybersäkerhet eller informationssäkerhet",
+        "Stark kunskap om säkerhetsramverk och standarder (ISO 27001, NIST, OWASP, CIS Controls)",
+        "Erfarenhet av säkerhetsbedömnings- och penetrationstestverktyg (Burp Suite, OWASP ZAP, Metasploit, Nmap)",
+        "Förståelse för molnsäkerhet (AWS Security, Azure Security, GCP Security)",
+        "Kunskap om nätverkssäkerhet, brandväggar och intrångsdetekterings-/förebyggandessystem",
+        "Erfarenhet av identitets- och åtkomsthantering (IAM, SSO, MFA, OAuth2, SAML)",
+        "Förståelse för kryptering, kryptografi och säkra kommunikationsprotokoll (TLS/SSL, VPN)",
+        "Erfarenhet av säkerhetsövervakning och SIEM-verktyg (Splunk, ELK Security, Azure Sentinel, AWS Security Hub)",
+        "Kunskap om sårbarhetshantering och säkerhetsskanningverktyg",
+        "Förståelse för säker kodningspraxis och applikationssäkerhet",
+        "Erfarenhet av efterlevnad och regulatoriska krav (GDPR, SOC 2, PCI-DSS)",
+        "Stark kunskap om incidenthantering och säkerhetsoperationer"
+      ],
+      "goodToHave": [
+        "Säkerhetscertifieringar (CISSP, CISM, CEH, GSEC, Security+ eller liknande)",
+        "Erfarenhet av DevSecOps och säkerhetsautomatisering",
+        "Kunskap om hotmodellering och riskbedömningsmetodologier",
+        "Erfarenhet av säkerhetsorkestrering och automatiserad respons (SOAR)",
+        "Bekantskap med zero-trust-arkitekturprinciper",
+        "Erfarenhet av containersäkerhet och Kubernetes-säkerhet",
+        "Kunskap om API-säkerhet och API gateway-säkerhet",
+        "Förståelse för säkerhet i microservices och serverless-arkitekturer",
+        "Erfarenhet av säkerhetsmedvetenhetsträning och utbildning",
+        "Kunskap om blockchain-säkerhet och Web3-säkerhet"
+      ],
+      "candidatesShould": [
+        "Vara mycket analytisk med stark uppmärksamhet på detaljer",
+        "Ha utmärkta problemlösnings- och kritiska tänkfärdigheter",
+        "Kunna kommunicera säkerhetsrisker och rekommendationer effektivt till tekniska och icke-tekniska intressenter",
+        "Hålla sig uppdaterad med de senaste säkerhetshoten och trenderna",
+        "Vara proaktiv i att identifiera och mildra säkerhetsrisker"
+      ],
+      "languageRequirements": [
+        "Engelska (Flytande)"
+      ]
+    },
+    "devopsSupport": {
+      "title": "Drift & Support Ingenjör",
+      "shortDescription": "Mellannivå-Senior Drift, Underhåll och Teknisk Support",
+      "aboutRole": "Vi söker en erfaren Drift & Support Ingenjör med 4-6+ års erfarenhet inom daglig drift, systemunderhåll och kundorienterad teknisk support. Denna roll fokuserar på att hålla system igång smidigt, svara på incidenter och ge utmärkt support till kunder och interna team. Om du har en passion för operativ excellens, felsökning och att säkerställa systemtillförlitlighet, har vi en spännande möjlighet för dig.",
+      "requirements": [
+        "4-6+ års erfarenhet inom drift, systemadministration eller teknisk support",
+        "Stark kunskap om Linux/Unix-systemadministration och felsökning",
+        "Erfarenhet av molnplattformar (AWS, Azure eller GCP) ur ett operativt perspektiv",
+        "Kompetens inom övervakning, varningar och incidenthantering (Prometheus, Grafana, Nagios, Datadog, New Relic, CloudWatch)",
+        "Erfarenhet av incidenthantering och biljettsystem (Jira, ServiceNow, Zendesk eller liknande) - detta är viktigt",
+        "Starka skriptfärdigheter för automatisering och felsökning (Bash, Python, PowerShell eller liknande)",
+        "Kunskap om containerisering och orkestrering för operativ support (Docker, Kubernetes)",
+        "Förståelse för CI/CD-pipelines och deploymentsprocesser ur ett operativt perspektiv",
+        "Erfarenhet av loggaggregering, analys och felsökning (ELK Stack, Splunk, CloudWatch Logs eller liknande)",
+        "Kunskap om databasadministration, felsökning och underhåll (PostgreSQL, MySQL, MongoDB eller liknande)",
+        "Erfarenhet av versionskontroll (Git) och konfigurationshantering",
+        "Förståelse för nätverk, DNS, lastbalansering och CDN-koncept för operativ support"
+      ],
+      "goodToHave": [
+        "Erfarenhet av Infrastructure as Code (Terraform, CloudFormation, Ansible) för operativa uppgifter",
+        "Kunskap om service mesh-teknologier (Istio, Linkerd) för felsökning",
+        "Erfarenhet av jourrotationer och incidenthanteringsprocedurer - detta är viktigt",
+        "Bekantskap med ITIL eller liknande IT-tjänstehanteringsramverk",
+        "Erfarenhet av kundorienterad support och kommunikation - detta är viktigt",
+        "Kunskap om backup, katastrofåterställningsprocedurer och affärskontinuitet",
+        "Erfarenhet av prestandajustering, optimering och kapacitetsplanering",
+        "Förståelse för säkerhetsbästa praxis i drift",
+        "Erfarenhet av automatiserad åtgärd och självläkande system",
+        "Kunskap om kostnadsoptimering och resurshantering i molnmiljöer"
+      ],
+      "candidatesShould": [
+        "Vara mycket kundfokuserad med utmärkta kommunikations- och interpersonella färdigheter",
+        "Ha starka problemlösningsförmågor och uppmärksamhet på detaljer",
+        "Kunna arbeta under press, hantera flera prioriteringar och hantera tid effektivt",
+        "Ha ett proaktivt tillvägagångssätt för att identifiera, förhindra och lösa operativa problem",
+        "Vara tillgänglig för jouransvar och flexibla arbetstider vid behov - detta är viktigt"
+      ],
+      "languageRequirements": [
+        "Engelska (Flytande)"
+      ]
+    },
+    "dataAnalysis": {
+      "title": "Data Analys Ingenjör",
+      "shortDescription": "Mellannivå-Senior Data Engineering och Analys",
+      "aboutRole": "Vi söker en erfaren Data & Analys Ingenjör med 4-6+ års erfarenhet inom data engineering, analys och business intelligence. Om du har en passion för att bygga skalbara datalösningar, extrahera insikter från komplexa dataset och arbeta med moderna datateknologier, har vi en spännande möjlighet för dig.",
+      "requirements": [
+        "4-6+ års erfarenhet inom data engineering, dataanalys eller business intelligence",
+        "Stark kompetens inom SQL och datamodellering",
+        "Erfarenhet av minst ett programmeringsspråk (Python, Scala, Java eller R)",
+        "Kunskap om datapipeline-verktyg (Apache Airflow, Luigi, Prefect eller liknande)",
+        "Erfarenhet av big data-teknologier (Apache Spark, Hadoop, Kafka, Flink)",
+        "Förståelse för data warehouse-koncept och arkitekturer (star schema, snowflake schema)",
+        "Erfarenhet av molndataplattformar (AWS, Azure eller GCP) och deras datatjänster",
+        "Kunskap om ETL/ELT-processer och dataintegrationsmönster",
+        "Erfarenhet av versionskontroll (Git) och samarbetsutveckling",
+        "Förståelse för datakvalitet, datastyrning och datalinje",
+        "Erfarenhet av business intelligence-verktyg (Tableau, Power BI, Looker eller liknande)",
+        "Kunskap om statistisk analys och datavisualisering"
+      ],
+      "goodToHave": [
+        "Erfarenhet av realtidsdatahantering och strömmande analys",
+        "Kunskap om maskininlärning och data science-koncept",
+        "Erfarenhet av data lake-arkitekturer (Delta Lake, Iceberg, Hudi)",
+        "Bekantskap med MLOps och modellutvecklingspipelines",
+        "Erfarenhet av NoSQL-databaser (MongoDB, Cassandra, DynamoDB)",
+        "Kunskap om grafdatabaser och grafanlys",
+        "Erfarenhet av datakatalogisering och metadatahanteringsverktyg",
+        "Förståelse för dataintegritetsregler (GDPR, CCPA)",
+        "Erfarenhet av molndata warehouses (Snowflake, Redshift, BigQuery, Databricks)",
+        "Kunskap om data mesh och data fabric-arkitekturer"
+      ],
+      "candidatesShould": [
+        "Vara mycket analytisk med starka problemlösningsfärdigheter",
+        "Ha utmärkt uppmärksamhet på detaljer och datakvalitetsmindset",
+        "Kunna översätta affärskrav till datalösningar",
+        "Ha starka kommunikationsfärdigheter för att presentera insikter till intressenter",
+        "Vara nyfiken och proaktiv i att utforska data för att hitta mönster och insikter"
+      ],
+      "languageRequirements": [
+        "Engelska (Flytande)"
+      ]
+    },
+    "architecture": {
+      "title": "Lösningsarkitekt",
+      "shortDescription": "Mellannivå-Senior Lösnings- och Systemarkitektur",
+      "aboutRole": "Vi söker en erfaren Lösningsarkitekt med 4-6+ års erfarenhet av att designa och implementera skalbara, pålitliga mjukvaruarkitekturer. Om du har en passion för att skapa tekniska lösningar, arbeta med moderna arkitekturmönster och vägleda utvecklingsteam, är detta en utmärkt möjlighet.",
+      "requirements": [
+        "4-6+ års erfarenhet inom mjukvaruarkitektur, lösningsdesign eller teknisk ledning",
+        "Stark kunskap om mjukvaruarkitekturmönster (microservices, serverless, händelsedriven, monolitisk till microservices-migrering)",
+        "Erfarenhet av molnarkitektur och cloud-native design (AWS, Azure eller GCP)",
+        "Förståelse för distribuerade system, skalbarhet och hög tillgänglighet",
+        "Kunskap om API-design och integrationsmönster (REST, GraphQL, gRPC)",
+        "Erfarenhet av containerisering och orkestrering (Docker, Kubernetes)",
+        "Stark förståelse för säkerhetsarkitektur och bästa praxis",
+        "Erfarenhet av Infrastructure as Code (Terraform, CloudFormation, Pulumi)",
+        "Kunskap om databasdesign och dataarkitektur (SQL, NoSQL, datamodellering)",
+        "Förståelse för CI/CD-pipelines och DevOps-praxis",
+        "Erfarenhet av systemdesign och teknisk dokumentation",
+        "Starka kommunikationsfärdigheter för att arbeta med intressenter och utvecklingsteam"
+      ],
+      "goodToHave": [
+        "Arkitekturcertifieringar (AWS Solutions Architect, Azure Solutions Architect, TOGAF eller liknande)",
+        "Erfarenhet av enterprise architecture-ramverk (TOGAF, Zachman)",
+        "Kunskap om domain-driven design (DDD) och bounded contexts",
+        "Erfarenhet av service mesh och API gateway-arkitekturer",
+        "Förståelse för händelsedriven arkitektur och CQRS-mönster",
+        "Erfarenhet av prestandaoptimering och systemjustering",
+        "Kunskap om multi-cloud och hybrid cloud-arkitekturer",
+        "Erfarenhet av modernisering och migreringsstrategier för äldre system",
+        "Förståelse för observerbarhets- och övervakningsarkitekturer",
+        "Erfarenhet av att leda tekniska team eller arkitekturgenomgångar"
+      ],
+      "candidatesShould": [
+        "Vara mycket strategisk med ett helhetsperspektiv",
+        "Ha utmärkta analytiska och problemlösningsfärdigheter",
+        "Kunna balansera tekniska krav med affärsbehov",
+        "Ha starka ledarskaps- och mentoringsförmågor",
+        "Hålla sig uppdaterad med framväxande teknologier och arkitekturtrender"
+      ],
+      "languageRequirements": [
         "Engelska (Flytande)"
       ]
     }

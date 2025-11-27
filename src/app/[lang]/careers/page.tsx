@@ -19,9 +19,17 @@ export default async function CareersPage({ params }: { params: Promise<{ lang: 
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             {dict.joinOurTeam}
           </h1>
-          <p className="text-xl text-gray-100 mb-6 max-w-3xl mx-auto">
-            {dict.joinOurTeamDescription}
-          </p>
+          <div className="text-xl text-gray-100 mb-6 max-w-5xl mx-auto space-y-3 px-4">
+            {dict.joinOurTeamDescription.split('. ').map((sentence, index, array) => {
+              // Don't add period if it's the last sentence (it already has one) or if it's empty
+              const text = index < array.length - 1 ? sentence + '.' : sentence;
+              return text.trim() ? (
+                <p key={index} className={index === 0 ? "font-medium" : ""}>
+                  {text.trim()}
+                </p>
+              ) : null;
+            })}
+          </div>
         </div>
       </section>
 

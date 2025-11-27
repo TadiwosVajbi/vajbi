@@ -83,6 +83,21 @@ export default async function JobDetailPage({ params }: JobDetailPageProps) {
               </ul>
             </div>
 
+            {/* Good to Have */}
+            {job.goodToHave && job.goodToHave.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">{dict.goodToHave}</h2>
+                <ul className="space-y-3">
+                  {job.goodToHave.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="flex-shrink-0 w-2 h-2 bg-[#3982a3] rounded-full mt-2 mr-3"></span>
+                      <span className="text-gray-700">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Candidates Should */}
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">{dict.candidatesShould}</h2>

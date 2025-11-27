@@ -77,6 +77,7 @@ export interface Dictionary {
   aboutTheRole: string;
   candidatesShould: string;
   languageRequirements: string;
+  goodToHave: string;
 
   // About Page
   aboutHero: string;
@@ -124,6 +125,7 @@ export interface Dictionary {
       shortDescription: string;
       aboutRole: string;
       requirements: string[];
+      goodToHave?: string[];
       candidatesShould: string[];
       languageRequirements: string[];
     };
